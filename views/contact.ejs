@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head") %>
+</head>
+
+<body>
+    <header class="page-header">
+        <%- include("./partials/header") %>
+    </header>
+
+    <h1 class="contact-title">CONTACT US TODAY</h1>
+
+        <div class="contact-img">
+            <img src="/img/contact-us.jpg" class="img-contact" alt="" width="100%">
+        </div>
+        <div flex-container>
+        <h2 class="sub-contact">Oficinas</h2>
+            <nav class="nav-contact">
+                <ul>
+                    <li class="nav-item">Buenos Aires</li>
+                    <li class="nav-item">Calle falsa 123</li>
+                    <li class="nav-item">+54 1164254656</li>
+                </ul>
+            </nav>
+    
+        <h2 class="sub-contact">¿Tenés alguna pregunta?</h2>
+
+        <form action="/" method="GET">
+
+            <div class="form-background">
+
+                <div class="input-box">
+                    <input class="input" type="text" name="name" id="user-name" placeholder="Nombre">
+                </div>
+    
+                <div class="input-box">
+                    <input class="input" type="text" name="lastname" id="user-lastname" placeholder="Apellido">
+                </div>
+
+                <div class="input-box">
+                    <input class="input" type="email" name="email" id="user-email" placeholder="Correo Electrónico">
+                </div>
+
+                <div class="input-box">
+                    <input class="input "type="tel" name="telefono" id="user-tel" placeholder="Teléfono">
+                </div>
+
+                <h3 class="contact-question">Tu pregunta:</h3>
+                <textarea class="cuadro" name="question" id="" cols="30" rows="10" placeholder="Escriba su pregunta..."></textarea>
+
+                <div class="input-button">
+                    <button class="register-button" type="submit">ENVIAR</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
+
+        <footer>
+            <%- include("./partials/footer") %>
+        </footer>
+    
+
+</body>
+
+</html>

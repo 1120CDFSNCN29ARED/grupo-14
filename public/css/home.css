@@ -1,0 +1,89 @@
+#foto-home img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 50%;
+}
+
+.texto-centrado1 {
+    font-family: Montserrat, Alegreya Sans, Bebas Neue;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    text-align: center;
+    font-weight: bold;
+}
+
+.texto-centrado2 {
+    font-family: "Roboto", sans-serif;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate( -50%, -50%);
+    text-align: center;
+    font-weight: bold;
+}
+
+#foto-home {
+    display: inline-block;
+    position: relative;
+}
+
+.titulo {
+    font-family: Montserrat, Alegreya Sans, Bebas Neue;
+}
+
+.agentes {
+    text-align: center;
+    position: relative;
+    margin-top: 10px;
+}
+
+.img1 {
+    padding: 5px 10px 5px 10px;
+    margin: 2px;
+    display: inline-block;
+    height: 100%;
+    text-align: center;
+}
+
+.img2 {
+    padding: 5px 10px 5px 10px;
+    margin: 2px;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+}
+
+#tamanio-imagen {
+    height: 50%;
+    width: 60%;
+}
+
+#buscador {
+    border: 1px solid black;
+    text-align: center;
+    margin: 10%;
+}
+
+.boton {
+    margin-top: 10px;
+}
+
+.contacto {
+    background-color: #99d6d0;
+    border: 2px solid #e0959e;
+    position: relative;
+}
+
+.formulario {
+    text-align: center;
+    margin: 1%;
+}
+
+.formulario-2 {
+    left: 40%;
+    text-align: center;
+    margin: 1%;
+}

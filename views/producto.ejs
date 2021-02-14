@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+</head>
+
+<body>
+    <header class="page-header">
+        <%- include("./partials/header") %>
+    </header>
+    <div>
+        <h2>Juan B justo 1540</h2>
+    </div>
+    <div class='carrusel'>
+        <img src='/img/fachada-edificio.jpg' alt='Carrusel imagenes' class='resize'>
+    </div>
+    <div class='cuadrado'>
+        <p>Contactenos</p>
+        <div class='formulario'><input type='text' placeholder="Email" name="Email" class='input-mini-contacto'></div>
+        <div class='formulario'>
+            <input type='text' placeholder='Nombre' name="Nombre" class='input-mini-contacto'>
+            <input type='text' placeholder='Telefono' name='Telefono' class='input-mini-contacto'>
+        </div>
+        <div class='formulario'>
+            <input type='submit' name='submit' value='Enviar'>
+        </div>
+    </div>
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+
+</body>
+
+</html>

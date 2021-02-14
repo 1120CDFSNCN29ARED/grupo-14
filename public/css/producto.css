@@ -1,0 +1,18 @@
+.resize {
+    width: 100%;
+}
+
+.carrusel {}
+
+.cuadrado {
+    width: 25vh;
+    max-width: 100px;
+    height: 25vh;
+    max-height: 100px;
+    border: 2px solid black;
+}
+
+.input-mini-contacto {
+    width: 7vh;
+    height: 3vh;
+}
