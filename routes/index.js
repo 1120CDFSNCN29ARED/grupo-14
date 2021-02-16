@@ -22,4 +22,8 @@ router.get('/register', function(req, res) {
     res.render('register', { title: 'Express' })
 });
 
+router.get('/nuevoProducto', function(req, res) {
+    res.render('nuevoProducto', { title: 'Express' })
+});
+
 module.exports = router;
