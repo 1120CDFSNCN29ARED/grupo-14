@@ -30,8 +30,10 @@
     position: relative;
 }
 
-.titulo {
+.titulos {
     font-family: Montserrat, Alegreya Sans, Bebas Neue;
+    font-size: 28px;
+    text-align: center;
 }
 
 .agentes {
@@ -40,26 +42,27 @@
     margin-top: 10px;
 }
 
-.img1 {
-    padding: 5px 10px 5px 10px;
-    margin: 2px;
-    display: inline-block;
-    height: 100%;
-    text-align: center;
+.agentes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.img2 {
-    padding: 5px 10px 5px 10px;
-    margin: 2px;
-    display: inline-block;
+.flex-item {
     text-align: center;
-    height: 100%;
+    margin: 10px;
+    padding: 4px;
 }
 
 #tamanio-imagen {
     height: 50%;
-    width: 60%;
+    width: 52%;
 }
+
+.agente-nombre {
+    padding: 10px;;
+}
+
 
 #buscador {
     border: 1px solid black;

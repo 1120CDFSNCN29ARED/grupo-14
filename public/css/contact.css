@@ -27,7 +27,7 @@ h2.sub-contact {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     margin: 15px;
-} 
+}
 
 .nav-item {
     text-align: center;
@@ -74,6 +74,8 @@ h2.sub-contact {
     background-color: #59766C;
     color: #fff;
 }
+
+
 
 @media (min-width: 768px) {
     .img-contact {
