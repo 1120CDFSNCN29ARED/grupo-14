@@ -50,9 +50,11 @@ h2.sub-contact {
     padding: 4px;
 }
 
-.cuadro {
+textarea.cuadro {
     width: 80%;
-    margin-bottom: 20px;
+    display: block;
+    margin: auto;
+    padding: 5px;
 }
 
 .contact-question {
@@ -104,7 +106,7 @@ h2.sub-contact {
         margin-bottom: 30px;
     }
 
-    .cuadro {
+    textarea .cuadro {
         width: 50%;
     }
 

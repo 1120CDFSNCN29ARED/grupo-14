@@ -53,6 +53,7 @@ p {
 .input-button {
     width: 50%;
     margin: auto;
+    padding: 15px;
 }
 
 @media (min-width: 768px) {
