@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const mainController = require('../controllers/mainControllers');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', { title: 'Express' });
@@ -26,7 +28,7 @@ router.get('/producto', function(req, res) {
     res.render('producto', { title: 'Express' })
 });*/
 
-
+router.get('/search', mainController.search);
 router.get('/agente', mainController.agente);
 
 module.exports = router;

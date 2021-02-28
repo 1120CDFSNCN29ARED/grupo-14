@@ -12,8 +12,8 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 
     index: (req, res) => {
-        // Do the magic
-        res.render("producto", { products })
+        console.log(products);
+        res.render("producto", { products: products });
     },
 
     detalle: (req, res) => {
@@ -38,6 +38,24 @@ const controller = {
         })
         res.render("editarProducto", { product })
     },
+
+    store: (req, res) => {
+        // Do the magic
+        //.res.send(req.body);
+        newId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
+        const newProduct = {
+            id: products.length + 1,
+            name: req.body.name,
+            price: Number(req.body.price),
+            discount: Number(req.body.discount),
+            category: req.body.category,
+            description: req.body.description,
+        };
+        products.push(newProduct);
+        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        res.render("detail", { product: newProduct, toThousand })
+    },
+
 
     update: (req, res) => {
         // Do the magic

@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 
+const productsController = require('../controllers/productController');
+
 
 // search
 router.get('/', productsController.index);
