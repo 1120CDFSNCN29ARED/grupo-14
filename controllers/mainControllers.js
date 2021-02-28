@@ -6,6 +6,11 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const controller = {
+    agente: (req, res) => {
+        res.render("agente");
+    }
+
+
 
 };
 
