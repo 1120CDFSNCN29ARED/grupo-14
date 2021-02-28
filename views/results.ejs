@@ -13,18 +13,18 @@
 
     <h1 class="title"> Nuestras propiedades</h1>
     <div class="container">
-        <%for(let i = 0 ; i<products.length; i++){%>
+        <%for(let i = 0 ; i<productsFiltered.length; i++){%>
             <div class="propiedad">
                 <img src="/img/fachada-edificio.jpg" alt="">
                 <h4>
-                    <%=products[i].precio%>
+                    <%=productsFiltered[i].precio%>
                 </h4>
                 <p>
-                    <%= products[i].direccion%> <br> Antiguedad:
-                        <%= products[i].antiguedad%> <br> Superficie total:
-                            <%=products[i].superficieTotal%>
+                    <%= productsFiltered[i].direccion%> <br> Antiguedad:
+                        <%= productsFiltered[i].antiguedad%> <br> Superficie total:
+                            <%=productsFiltered[i].superficieTotal%>
                 </p>
-                <a href="/products/<%=products[i].id%>">Leer más</a> <br>
+                <a href="/products/<%=productsFiltered[i].id%>">Leer más</a> <br>
                 <div>
                     <button class="btn-propiedad">Contactar un agente</button>
                 </div>

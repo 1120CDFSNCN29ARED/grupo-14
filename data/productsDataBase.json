@@ -1,8 +1,9 @@
 [{
     "id": 1,
     "name": "Larralde 2201",
-    "precio": 100000,
+    "precio": 15000,
     "destacado": true,
+    "barrio": "chacarita",
     "descripcion": "Gran departamento amplio",
     "direccion": "Larralde 2201",
     "antiguedad": 6,

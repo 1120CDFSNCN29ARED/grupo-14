@@ -39,16 +39,16 @@
         </div>
     </div>
     <div id='buscador'>
-        <form action="/home" method="post">
-            <input type='text' placeholder="Ubicacion" name='Ubicacion'>
-            <select name="Barrio">
-                <option value="1">Chacarita</option>
-                <option value="2">Belgrano</option>
-                <option value="3">Colegiales</option>
-                <option value="4">Palermo</option>
-                <option value="5">Olivos</option>
+        <form action="/search" method="GET">
+            <input type='text' placeholder="Ubicacion" name='ubicacion'>
+            <select name="barrio">
+                <option value="chacarita">Chacarita</option>
+                <option value="belgrano">Belgrano</option>
+                <option value="colegiales">Colegiales</option>
+                <option value="palermo">Palermo</option>
+                <option value="olivos">Olivos</option>
             </select>
-            <select name="Rango de precios">
+            <select name="rangoDePrecios">
                 <option value="1">10.000 - 20.000</option>
                 <option value="2">20.001 - 30.000</option>
                 <option value="3">30.001 - 40.000</option>
@@ -56,7 +56,7 @@
                 <option value="5">50.001 - +</option>
             </select>
             <label>
-                    <input type="checkbox" value="Alquiler" name='Alquiler'>
+                    <input type="checkbox" value="Alquiler" name='alquiler'>
                     Alquiler
                 </label>
             <div class="boton">
@@ -66,24 +66,24 @@
         </form>
     </div>
 
-    
-        <h1 class="titulos">Agentes inmobiliarios</h1>
 
-        <div class='agentes-container'>
+    <h1 class="titulos">Agentes inmobiliarios</h1>
 
-            <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 1' id='tamanio-imagen'>
-                <p class="agente-nombre">Martin Ljaskowsky <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-            </div>
-            <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 2' id='tamanio-imagen'>
-                <p class="agente-nombre">Matias Rosbaco <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-            </div>
-            <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 3' id='tamanio-imagen'>
-                <p class="agente-nombre">Marco Morana <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-            </div>
-            <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 4' id='tamanio-imagen'>
-                <p class="agente-nombre">Gonzales Pardo <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-            </div>
-        
+    <div class='agentes-container'>
+
+        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 1' id='tamanio-imagen'>
+            <p class="agente-nombre">Martin Ljaskowsky <br><i class="fas fa-phone-alt"></i> +541164254656</p>
+        </div>
+        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 2' id='tamanio-imagen'>
+            <p class="agente-nombre">Matias Rosbaco <br><i class="fas fa-phone-alt"></i> +541164254656</p>
+        </div>
+        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 3' id='tamanio-imagen'>
+            <p class="agente-nombre">Marco Morana <br><i class="fas fa-phone-alt"></i> +541164254656</p>
+        </div>
+        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 4' id='tamanio-imagen'>
+            <p class="agente-nombre">Gonzales Pardo <br><i class="fas fa-phone-alt"></i> +541164254656</p>
+        </div>
+
     </div>
     <div class='contacto'>
         <form action="/home" method="post">
