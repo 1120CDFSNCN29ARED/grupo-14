@@ -1,7 +1,36 @@
 [{
     "id": 1,
-    "nombre": "martin palermo",
-    "email": "martinpalermo@gmail.com",
+    "nombre": "Palermo Martin",
+    "email": "palermomartin123@gmail.com",
     "contraseña": "contraseña",
     "imagen":
-}]
+}
+{
+    "id": 2,
+    "nombre": "Barri Lete",
+    "email": "barrilete@gmail.com",
+    "contraseña": "contraseña",
+    "imagen":
+}
+{
+    "id": 3,
+    "nombre": "Aitor Tilla",
+    "email": "aitortilla@gmail.com",
+    "contraseña": "contraseña",
+    "imagen":
+}
+{
+    "id": 4,
+    "nombre": "Susana Oria",
+    "email": "susanaoria@gmail.com",
+    "contraseña": "contraseña",
+    "imagen":
+}
+{
+    "id": 5,
+    "nombre": "Victor Tazo",
+    "email": "victortazo@gmail.com",
+    "contraseña": "contraseña",
+    "imagen":
+}
+]
