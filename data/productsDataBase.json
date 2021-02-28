@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "name": "Larralde 2201",
+    "precio": 100000,
+    "destacado": true,
+    "descripcion": "Gran departamento amplio",
+    "direccion": "Larralde 2201",
+    "antiguedad": 6,
+    "superficie total": 200,
+    "superficie cubierta": 100,
+    "superficie descubierta": 100,
+    "id agente": 1,
+    "balcon": true,
+    "cocina integrada": true,
+    "banios": 1,
+    "cocheras": 0,
+    "dormitorios": 1,
+    "admite mascota": true
+}]
