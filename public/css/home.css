@@ -56,7 +56,7 @@
 
 #tamanio-imagen {
     height: 50%;
-    width: 35%;
+    width: 30%;
 }
 
 .agente-nombre {
@@ -89,4 +89,27 @@
     left: 40%;
     text-align: center;
     margin: 1%;
+}
+
+
+
+@media (min-width:1200px) {
+
+    .titulos {
+        font-size: 40px;
+    }
+    #tamanio-imagen {
+        height: 65%;
+        width: 82%;
+    }
+    
+    .agentes-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+
+    .flex-item {
+        margin: 18px;
+    }
 }
