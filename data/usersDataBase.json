@@ -3,34 +3,34 @@
         "nombre": "Palermo Martin",
         "email": "palermomartin123@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "palermo-martin.jpg"
     },
     {
         "id": 2,
         "nombre": "Barri Lete",
         "email": "barrilete@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "barri-lete.jpg"
     },
     {
         "id": 3,
         "nombre": "Aitor Tilla",
         "email": "aitortilla@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "aitor-tilla.jpg"
     },
     {
         "id": 4,
         "nombre": "Susana Oria",
         "email": "susanaoria@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "susana-oria.jpg"
     },
     {
         "id": 5,
         "nombre": "Victor Tazo",
         "email": "victortazo@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "victor-tazo.jpg"
     }
 ]

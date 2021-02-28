@@ -3,7 +3,7 @@
         "nombre": "Martin Palermo",
         "email": "martinpalermo@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "martin-palermo.jpg"
     },
 
     {
@@ -11,7 +11,7 @@
         "nombre": "Al K Huete",
         "email": "alkhuete321@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "al-k-huete.jpg"
     },
 
     {
@@ -19,7 +19,7 @@
         "nombre": "Elba Lazo",
         "email": "elbalazo123@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "elba-lazo.jpg"
     },
 
     {
@@ -27,7 +27,7 @@
         "nombre": "Armando Casas",
         "email": "armandocasas321@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "armando-casas.jpg"
     },
 
     {
@@ -35,6 +35,6 @@
         "nombre": "Bob Alicon",
         "email": "bobalicon123@gmail.com",
         "contraseña": "contraseña",
-        "imagen":
+        "imagen": "bob-alicon.jpg"
     }
 ]
