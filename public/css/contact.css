@@ -27,7 +27,7 @@ h2.sub-contact {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     margin: 15px;
-}
+} 
 
 .nav-item {
     text-align: center;
@@ -50,11 +50,9 @@ h2.sub-contact {
     padding: 4px;
 }
 
-textarea.cuadro {
+#cuadro {
     width: 80%;
-    display: block;
-    margin: auto;
-    padding: 5px;
+    margin-bottom: 20px;
 }
 
 .contact-question {
@@ -77,8 +75,6 @@ textarea.cuadro {
     color: #fff;
 }
 
-
-
 @media (min-width: 768px) {
     .img-contact {
         max-height: 47vw;
@@ -97,7 +93,7 @@ textarea.cuadro {
         display: block;
         width: 100%;
         font-size: 1.5em;
-        border: 2px solid black;
+        border: 2psx solid black;
         border-radius: 8px;
         padding: 8px;
     }
@@ -106,7 +102,7 @@ textarea.cuadro {
         margin-bottom: 30px;
     }
 
-    textarea .cuadro {
+    .cuadro {
         width: 50%;
     }
 
