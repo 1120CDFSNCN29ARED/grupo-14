@@ -20,6 +20,8 @@ router.get('/register', function(req, res) {
     res.render('register', { title: 'Express' })
 });
 
+router.post('/', mainController.createUser)
+
 //router.get('/nuevoProducto', function(req, res) {
 //  res.render('nuevoProducto', { title: 'Express' })
 //});
@@ -27,8 +29,10 @@ router.get('/register', function(req, res) {
 router.get('/producto', function(req, res) {
     res.render('producto', { title: 'Express' })
 });*/
+router.get('/agente', mainController.agente);
+router.post('/', mainController.createAgent);
 
 router.get('/search', mainController.search);
-router.get('/agente', mainController.agente);
+
 
 module.exports = router;
