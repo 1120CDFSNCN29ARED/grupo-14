@@ -53,7 +53,7 @@ const controller = {
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products));
-        res.render("detail", { product: newProduct, toThousand })
+        res.render("detalle-producto", { product: newProduct, toThousand })
     },
 
 
