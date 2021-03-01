@@ -20,6 +20,7 @@
     font-family: 'Montserrat', sans-serif;
   }
 
+  
   .container {
     width: 100%;
     display: flex;
@@ -76,6 +77,46 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
+  .btn:hover{
+    background-color: #ceb46c;
+    color: #fff;
+  }
+
+  .edit{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+  }
+
+  .editar{
+    background-color: rgb(241, 200, 124);
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 30px;
+    margin-right: 5px;
+  }
+
+  .borrar{
+    background-color: rgb(243, 124, 124);
+    padding: 5px;
+    font-size: 15px;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 30px;
+    margin-right: 5px;
+  }
 
   @media (min-width: 768px) {
 
