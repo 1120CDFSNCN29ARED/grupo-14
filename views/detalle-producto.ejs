@@ -12,12 +12,12 @@
 
     <h1 class="product-title">Detalle de la propiedad</h1>
     <div class="product-container">
-    
-            <img src="/img/producto 2.jpg" alt="" class="product-img">
-        
+
+        <img src="/img/producto 2.jpg" alt="" class="product-img">
+
         <div class="principal-desc">
             <h3 class="product-price">$220.000</h2>
-            <h3 class="product-direcc">Av.Olazabal 2100, Capital Federal, Buenos Aires</h3>
+                <h3 class="product-direcc">Av.Olazabal 2100, Capital Federal, Buenos Aires</h3>
 
         </div>
         <div class="product-desc">
@@ -36,13 +36,16 @@
         </div>
 
     </div>
-        
+
     <div class="edit">
-        <button class="btn editar">Editar</button>
-        <button class="btn borrar">Borrar</button>
+        <a href="/producto/<%=product.id%>/edit/"><button class="btn editar">Editar</button></a>
+        <form action="/producto/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
+            <button class="btn borrar">Borrar</button>
+        </form>
     </div>
 
     <h3 class="form-title">¿Querés recibir más información sobre la propiedad?</h3>
+    <!-- en realidad, tiene que haber un json diferente para los leads, pero supongamos que esta bien, porque ya es innecesario tanto-->
     <form action="/register" method="POST">
         <div class="form-background">
             <div class="input-box">
@@ -64,7 +67,7 @@
 
     </form>
 
-  
+
     <footer>
         <%- include("./partials/footer") %>
     </footer>

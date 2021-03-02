@@ -43,15 +43,15 @@ const controller = {
         let ubicacion = req.query.ubicacion;
         let barrio = req.query.barrio;
         let rangoDePrecios = req.query.rangoDePrecios;
-        console.log(barrio);
-        console.log(ubicacion);
-        console.log(rangoDePrecios);
+        //console.log(barrio);
+        //console.log(ubicacion);
+        // console.log(rangoDePrecios);
         let productsFiltered = products.filter(product => {
-            console.log(product.name);
+            //console.log(product.name);
             switch (rangoDePrecios) {
                 case 1:
                     if (10000 > Number(product.precio) < 20000) {
-                        console.log(product.precio);
+                        //console.log(product.precio);
                         return product.direccion.includes(ubicacion) && product.barrio.includes(barrio);
                     }
                 case 2:

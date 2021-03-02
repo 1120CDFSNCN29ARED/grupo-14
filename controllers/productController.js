@@ -12,7 +12,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const controller = {
 
     index: (req, res) => {
-        console.log(products);
+        //console.log(products);
         res.render("producto", { products: products });
     },
 
@@ -80,13 +80,14 @@ const controller = {
         const productsFilter = products.filter((prod) => {
             return prod.id != req.params.id;
         });
-
+        console.log("hola");
         /*const productIndex = products.findIndex((prod)=>{
         	return.prod.id == req.params.id;
         });
         products.splice(productsIndex, 1); */
         fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter));
-        res.redirect(`/`);
+        res.render("index");
+
     }
 
 

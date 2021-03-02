@@ -19,7 +19,7 @@ router.get('/:id/', productsController.detalle);
 router.get('/:id/edit', productsController.edit);
 router.put('/edit', productsController.update);
 
-
+console.log('hola');
 router.delete('/:id', productsController.destroy);
 
 module.exports = router;

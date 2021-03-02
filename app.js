@@ -6,13 +6,17 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/producto');
+const methodOverride = require('method-override');
 
 
 var app = express();
 
-app.listen(3001);
+//app.listen(3001);
 
 // view engine setup
+
+
+app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
