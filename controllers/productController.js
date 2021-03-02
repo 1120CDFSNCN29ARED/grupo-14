@@ -27,6 +27,7 @@ const controller = {
 
     create: (req, res) => {
         // Do the magic
+
         res.render("nuevoProducto");
     },
 
@@ -44,18 +45,15 @@ const controller = {
         //.res.send(req.body);
         newId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
         const newProduct = {
-            id: products.length + 1,
+            id: newId,
             name: req.body.name,
-            price: Number(req.body.price),
-            discount: Number(req.body.discount),
-            category: req.body.category,
-            description: req.body.description,
+            precio: Number(req.body.precio),
+            descripcion: req.body.comentario,
         };
         products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
         res.render("detalle-producto", { product: newProduct, toThousand })
     },
-
 
     update: (req, res) => {
         // Do the magic
@@ -65,12 +63,10 @@ const controller = {
         })
         productACambiar = {
             name: req.body.name,
-            price: Number(req.body.price),
-            discount: Number(req.body.discount),
-            category: req.body.category,
-            description: req.body.description,
+            precio: Number(req.body.precio),
+            descripcion: req.body.descripcion,
         }
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 
         res.render("detalle-producto", { product: productACambiar, toThousand });
     },
@@ -85,7 +81,7 @@ const controller = {
         	return.prod.id == req.params.id;
         });
         products.splice(productsIndex, 1); */
-        fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter));
+        fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter, null, " "));
         res.render("index");
 
     }

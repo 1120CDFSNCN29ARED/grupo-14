@@ -20,7 +20,7 @@ const controller = {
             //imagen: req.body.description,
         };
         products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
         res.render("index", { product: newProduct, toThousand })
     },
 
@@ -34,7 +34,7 @@ const controller = {
             //imagen: req.body.description,
         };
         products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products));
+        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
         res.render("index", { product: newProduct, toThousand })
     },
 
