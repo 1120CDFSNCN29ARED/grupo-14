@@ -21,7 +21,7 @@ const controller = {
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.render("index", { product: newProduct, toThousand })
+        res.redirect("/");
     },
 
     createUser: (req, res) => {
@@ -35,7 +35,7 @@ const controller = {
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.render("index", { product: newProduct, toThousand })
+        res.redirect("/");
     },
 
     search: (req, res) => {
@@ -49,7 +49,7 @@ const controller = {
         let productsFiltered = products.filter(product => {
             //console.log(product.name);
             switch (rangoDePrecios) {
-                case 1:
+                case 1: //hacer lo que pablo me explico
                     if (10000 > Number(product.precio) < 20000) {
                         //console.log(product.precio);
                         return product.direccion.includes(ubicacion) && product.barrio.includes(barrio);

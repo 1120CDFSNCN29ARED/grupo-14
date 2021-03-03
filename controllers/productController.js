@@ -54,7 +54,8 @@ const controller = {
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.render("detalle-producto", { product: newProduct, toThousand })
+        //res.render("detalle-producto", { product: newProduct, toThousand })
+        res.redirect(`/producto/${newId}`);
     },
 
     update: (req, res) => {
@@ -74,7 +75,7 @@ const controller = {
         }
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 
-        res.render("detalle-producto", { product: productACambiar, toThousand });
+        res.redirect(`/producto/${id}`);
     },
 
     destroy: (req, res) => {
@@ -88,7 +89,7 @@ const controller = {
         });
         products.splice(productsIndex, 1); */
         fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter, null, " "));
-        res.render("index");
+        res.redirect("/");
 
     }
 
