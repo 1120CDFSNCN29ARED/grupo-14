@@ -43,32 +43,39 @@ const controller = {
     store: (req, res) => {
         // Do the magic
         //.res.send(req.body);
+        const filename = req.file.filename
         newId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
         const newProduct = {
             id: newId,
             name: req.body.name,
             precio: Number(req.body.precio),
             descripcion: req.body.comentario,
+            imagen: filename
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.render("detalle-producto", { product: newProduct, toThousand })
+        //res.render("detalle-producto", { product: newProduct, toThousand })
+        res.redirect(`/producto/${newId}`);
     },
 
     update: (req, res) => {
         // Do the magic
+
         const id = req.params.id;
         let productACambiar = products.find((prod) => {
             return prod.id == id;
         })
+
+        const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
         productACambiar = {
             name: req.body.name,
             precio: Number(req.body.precio),
             descripcion: req.body.descripcion,
+            imagen: filename
         }
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 
-        res.render("detalle-producto", { product: productACambiar, toThousand });
+        res.redirect(`/producto/${id}`);
     },
 
     destroy: (req, res) => {
@@ -82,7 +89,7 @@ const controller = {
         });
         products.splice(productsIndex, 1); */
         fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter, null, " "));
-        res.render("index");
+        res.redirect("/");
 
     }
 

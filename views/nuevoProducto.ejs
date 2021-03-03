@@ -12,23 +12,23 @@
 
     <h2 class="title">Agregar nuevo producto</h2>
 
-    <form action="/producto" method="POST">
+    <form action="/producto" method="POST" enctype="multipart/form-data">
 
         <div class="form-background">
 
             <div class="div-box">
                 <label class="labell" for="name">Nombre del producto</label>
-                <input class="inputt" type="text" name="name" id="name">
+                <input class="inputt" type="text" name="name" id="name" required>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="desc">Descripción del producto</label>
-                <textarea class="inputt" name="comentario" rows="10" cols="40"></textarea>
+                <textarea class="inputt" name="comentario" rows="10" cols="40" required></textarea>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="img">Imagen del producto</label>
-                <input class="inputt" type="file" name="archivo" id="archivo">
+                <input class="inputt" type="file" name="archivo" id="archivo" required>
             </div>
 
             <div class="div-box">
