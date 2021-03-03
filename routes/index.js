@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const path = require("path");
+var multer = require('multer');
 
 const mainController = require('../controllers/mainControllers');
 
@@ -30,7 +32,7 @@ router.get('/producto', function(req, res) {
     res.render('producto', { title: 'Express' })
 });*/
 router.get('/agente', mainController.agente);
-router.post('/', mainController.createAgent);
+router.post('/agente/edit', mainController.createAgent);
 
 router.get('/search', mainController.search);
 
