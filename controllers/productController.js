@@ -66,12 +66,15 @@ const controller = {
             return prod.id == id;
         })
 
-        const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
+        //const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
+        //const filename = req.file.filename;
         productACambiar = {
             name: req.body.name,
             precio: Number(req.body.precio),
             descripcion: req.body.descripcion,
-            imagen: filename
+        }
+        if (req.file != undefined) {
+            productACambiar.imagen = req.file.filename
         }
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 

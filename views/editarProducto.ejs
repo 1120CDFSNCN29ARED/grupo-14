@@ -12,18 +12,18 @@
 
     <h2 class="title">Agregar nuevo producto</h2>
 
-    <form action="/producto" method="PUT">
+    <form action="/producto/edit/?_method=PUT" method="POST">
 
         <div class="form-background">
 
             <div class="div-box">
                 <label class="labell" for="name">Nombre del producto</label>
-                <input class="inputt" type="text" name="name" id="name" value=<%= product.name%>>
+                <input class="inputt" type="text" name="name" id="name" value=<%=product.name%>>
             </div>
-            
+
             <div class="div-box">
                 <label class="labell" for="desc">Descripción del producto</label>
-                <textarea class="inputt" name="comentario" rows="10" cols="40" ><%=product.descripcion%></textarea>
+                <textarea class="inputt" name="comentario" rows="10" cols="40"><%=product.descripcion%></textarea>
             </div>
 
             <div class="div-box">
@@ -35,7 +35,7 @@
                 <label class="labell" for="name">Antiguedad</label>
                 <input class="inputt" type="number" name="name" id="name" value=<%=product.antiguedad%>>
             </div>
-            
+
             <div class="div-box">
                 <label class="labell" for="name">Superficie Cubierta</label>
                 <input class="inputt" type="number" name="name" id="name" value=<%=product.superficieCubierta%>>
