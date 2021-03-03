@@ -16,6 +16,7 @@
   "banios": 1,
   "cocheras": 0,
   "dormitorios": 1,
+     "ambientes": 2,
   "admiteMascota": false,
   "barrio": "belgrano",
   "imagen": "Oliden-687.jpg"
