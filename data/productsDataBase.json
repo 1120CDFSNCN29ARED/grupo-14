@@ -70,5 +70,18 @@
   "name": "sadfsdaf",
   "precio": 0,
   "descripcion": ""
+ },
+ {
+  "id": 6,
+  "name": "algo",
+  "precio": 1000,
+  "descripcion": "cualquiera"
+ },
+ {
+  "id": 7,
+  "name": "algo",
+  "precio": 1000,
+  "descripcion": "totalmente",
+  "imagen": "1614790331327.jpg"
  }
 ]
