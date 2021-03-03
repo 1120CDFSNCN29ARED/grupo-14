@@ -71,6 +71,9 @@ h4 {
 
     .principal-desc {
         width: 50%;
+        font-size: 26px;
+        position: relative;
+        top: 65px;
     }
 
 
@@ -88,13 +91,15 @@ h4 {
 @media (min-width:1200px) {
     .product-container {
         display: flex;
+        justify-content: space-evenly;
     }
 
     .product-img {
-        width: 30%;
+        width: 40%;
     }
+
     
     .product-desc {
-        text-align: right;
+        width: 50%;
     }
 }
