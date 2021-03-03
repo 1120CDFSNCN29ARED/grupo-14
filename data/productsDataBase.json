@@ -16,6 +16,7 @@
   "banios": 1,
   "cocheras": 0,
   "dormitorios": 1,
+  "ambientes": 2,
   "admiteMascota": false,
   "barrio": "belgrano",
   "imagen": "Oliden-687.jpg"
@@ -37,6 +38,7 @@
   "banios": 2,
   "cocheras": 1,
   "dormitorios": 3,
+  "ambientes": 6,
   "admiteMascota": true,
   "barrio": "palermo",
   "imagen": "Ramon-falcon-1680.jpeg"
@@ -58,8 +60,15 @@
   "banios": 1,
   "cocheras": 1,
   "dormitorios": 1,
+  "ambientes": 3,
   "admiteMascota": true,
   "barrio": "colegiales",
   "imagen": "Tonelero-700.jpg"
+ },
+ {
+  "id": 5,
+  "name": "sadfsdaf",
+  "precio": 0,
+  "descripcion": ""
  }
 ]
