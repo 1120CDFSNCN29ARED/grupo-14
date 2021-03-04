@@ -33,30 +33,40 @@
         </div>
     </div>
     <div id='buscador'>
+        <h2 class="search-title">Encontrá tu hogar</h2>
         <form action="/search" method="GET">
-            <input type='text' placeholder="Ubicacion" name='ubicacion'>
-            <select name="barrio">
-                <option value="chacarita">Chacarita</option>
-                <option value="belgrano">Belgrano</option>
-                <option value="colegiales">Colegiales</option>
-                <option value="palermo">Palermo</option>
-                <option value="olivos">Olivos</option>
+            <div class="form-background">
+                <div class="search-box">
+                    <input class="input" type="text" name="ubicacion" id="ubicacion" placeholder="Ubicación">
+                </div>
+
+            <div class="search-box">
+                <select class="input" name="barrio">
+                    <option value="chacarita">Chacarita</option>
+                    <option value="belgrano">Belgrano</option>
+                    <option value="colegiales">Colegiales</option>
+                    <option value="palermo">Palermo</option>
+                    <option value="olivos">Olivos</option>
+                </select>
+            </div>
+            <div class="search-box">
+                <select class="input" name="rangoDePrecios">
+                    <option value="1">10.000 - 20.000</option>
+                    <option value="2">20.001 - 30.000</option>
+                    <option value="3">30.001 - 40.000</option>
+                    <option value="4">40.001 - 50.000</option>
+                    <option value="5">50.001 - +</option>
             </select>
-            <select name="rangoDePrecios">
-                <option value="1">10.000 - 20.000</option>
-                <option value="2">20.001 - 30.000</option>
-                <option value="3">30.001 - 40.000</option>
-                <option value="4">40.001 - 50.000</option>
-                <option value="5">50.001 - +</option>
-            </select>
-            <label>
-                    <input type="checkbox" value="Alquiler" name='alquiler'>
-                    Alquiler
-                </label>
+            </div>
+            <div class="search-box">
+            <label><input type="checkbox" value="Alquiler" name='alquiler'> Alquiler</label>
+            <label><input type="checkbox" value="Comprar" name='comprar'> Comprar</label>
+            </div>
+
             <div class="boton">
                 <button type="submit">Buscar</button>
             </div>
-
+        </div>
         </form>
     </div>
 
@@ -81,7 +91,7 @@
     </div>
     <div class='contacto'>
         <form action="/home" method="post">
-            <h2 class="titulos">Contactenos</h2>
+            <h2 class="titulos">Contáctenos</h2>
 
             <div class='formulario'><input class="input-box" type='text' placeholder="Email" name="Email"></div>
             <div class='formulario'>

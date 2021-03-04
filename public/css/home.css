@@ -69,11 +69,27 @@
     border: 1px solid black;
     text-align: center;
     margin: 10%;
+    border-radius: 1%;
+    padding: 12px;
+    
 }
 
-.boton {
-    margin-top: 10px;
+.boton button {
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 20px;
 }
+
+.boton button:hover {
+    background-color: #59766C;
+    color: #fff;
+}
+
 .login-button:hover {
     background-color: #59766C;
     color: #fff;
@@ -81,7 +97,7 @@
 
 .contacto {
     background-color: #99d6d0;
-    border: 2px solid #e0959e;
+    border: 2px solid black;
     position: relative;
 }
 

@@ -61,6 +61,15 @@ p {
     font-family: 'Roboto', sans-serif;
 }
 
+.search-box {
+    display: block;
+    width: 80%;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px;
+}
+
 @media (min-width: 768px) {
     .form-background {
         display: flex;
@@ -83,6 +92,14 @@ p {
         display: flex;
         justify-content: center;
         width: 20%;
+    }
+    .search-box {
+        display: block;
+        width: 80%;
+        font-size: 0.9em;
+        border-radius: 8px;
+        padding: 8px;
+        margin: 5px;
     }
 }
 
