@@ -23,18 +23,12 @@
         <h2 class='titulos'>Inmuebles destacados</h2>
         <div class='agentes'>
             <center>
-                <div class='img2'><img src='/img/propiedadesjpg.jpg' alt='Agente 1' id='tamanio-imagen'>
-                    <p>Juan B Justo 1440</p>
-                </div>
-                <div class='img2'><img src='/img/propiedadesjpg.jpg' alt='Agente 2' id='tamanio-imagen'>
-                    <p>Larralde 1440</p>
-                </div>
-                <div class='img2'><img src='/img/propiedadesjpg.jpg' alt='Agente 3' id='tamanio-imagen'>
-                    <p>Costa rica 1440</p>
-                </div>
-                <div class='img2'><img src='/img/propiedadesjpg.jpg' alt='Agente 4' id='tamanio-imagen'>
-                    <p>Montañeses 1440</p>
-                </div>
+                <% for(let i=0; i<products.length;i++){
+                    if(products[i].destacado==true){ %>
+                        <div class='img2'><img src='img/products/<%=products[i].imagen%>' alt='Agente 1' id='tamanio-imagen'>
+                            <p><%= products[i].name %></p>
+                        <%}}%>
+                
             </center>
         </div>
     </div>

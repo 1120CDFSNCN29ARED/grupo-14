@@ -6,9 +6,7 @@ var multer = require('multer');
 const mainController = require('../controllers/mainControllers');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-});
+router.get('/', mainController.index);
 
 router.get('/contact', function(req, res) {
     res.render('contact', { title: 'Express' })
@@ -35,6 +33,8 @@ router.get('/agente', mainController.agente);
 router.post('/agente/edit', mainController.createAgent);
 
 router.get('/search', mainController.search);
+
+
 
 
 module.exports = router;

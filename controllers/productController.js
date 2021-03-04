@@ -11,7 +11,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 
-    index: (req, res) => {
+    producto: (req, res) => {
         //console.log(products);
         res.render("producto", { products: products });
     },
@@ -34,6 +34,7 @@ const controller = {
     edit: (req, res) => {
         // Do the magic
         const id = req.params.id;
+        console.log(id);
         const product = products.find((prod) => {
             return prod.id == id;
         })
@@ -62,20 +63,35 @@ const controller = {
         // Do the magic
 
         const id = req.params.id;
-        let productACambiar = products.find((prod) => {
+        let index = products.indexOf((prod) => {
             return prod.id == id;
         })
-
+        console.log(index);
+        let productACambiar = products[index];
+        console.log(productACambiar);
         //const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
         //const filename = req.file.filename;
-        productACambiar = {
-            name: req.body.name,
-            precio: Number(req.body.precio),
-            descripcion: req.body.descripcion,
-        }
+        console.log("el req file es : " + req.file);
         if (req.file != undefined) {
-            productACambiar.imagen = req.file.filename
+            productACambiar = {
+                id: id,
+                name: req.body.name,
+                precio: Number(req.body.precio),
+                descripcion: req.body.descripcion,
+                imagen: req.file.filename
+            }
+        } else {
+            productACambiar = {
+                name: req.body.name,
+                precio: Number(req.body.precio),
+                descripcion: req.body.descripcion,
+            }
         }
+        console.log("product a cambiar es" + productACambiar);
+        products.splice(index, 1);
+        console.log("product despues de splice " + products);
+        products.splice(index, 1, productACambiar);
+        console.log(products);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
 
         res.redirect(`/producto/${id}`);

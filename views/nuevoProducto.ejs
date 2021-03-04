@@ -15,37 +15,87 @@
     <form action="/producto" method="POST" enctype="multipart/form-data">
 
         <div class="form-background">
-
+        
             <div class="div-box">
                 <label class="labell" for="name">Nombre del producto</label>
-                <input class="inputt" type="text" name="name" id="name" required>
+                <input class="inputt" type="text" name="name" id="name">
             </div>
-
+        
             <div class="div-box">
                 <label class="labell" for="desc">Descripción del producto</label>
-                <textarea class="inputt" name="comentario" rows="10" cols="40" required></textarea>
+                <textarea class="inputt" name="descripcion" rows="10" cols="40"></textarea>
             </div>
-
+        
+            <div class="div-box">
+                <label class="labell" for="name">Direccion</label>
+                <input class="inputt" type="text" name="direccion" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">Antiguedad</label>
+                <input class="inputt" type="number" name="antiguedad" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">Superficie Cubierta</label>
+                <input class="inputt" type="number" name="superficieCubierta" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">Superficie Descubierta</label>
+                <input class="inputt" type="number" name="superficieDescubierta" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">banios</label>
+                <input class="inputt" type="number" name="banios" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">cocheras</label>
+                <input class="inputt" type="number" name="cocheras" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">dormitorios</label>
+                <input class="inputt" type="number" name="dormitorios" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">ambientes</label>
+                <input class="inputt" type="number" name="ambientes" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">barrio</label>
+                <input class="inputt" type="text" name="barrio" id="name">
+            </div>
+        
+            <div class="div-box">
+                <label class="labell" for="name">destacado</label>
+                <input class="inputt" type="checkbox" name="destacado" id="name">
+            </div>
+        
             <div class="div-box">
                 <label class="labell" for="img">Imagen del producto</label>
-                <input class="inputt" type="file" name="archivo" id="archivo" required>
+                <input class="inputt" type="file" name="imagen" id="archivo">
             </div>
-
+        
             <div class="div-box">
                 <label class="labell" for="categoria">Categoría</label><br><br>
                 <input type="radio" name="compra-venta" value="compra"> Compra <br><br>
                 <input type="radio" name="compra-venta" value="alquiler"> Alquiler
             </div>
-
+        
             <div class="div-box">
-                <label class="label" for="precio">Precio</label>
-                <input class="input" type="number" name="precio" id="precio">
+                <label class="labell" for="precio">Precio</label>
+                <input class="inputt" type="number" name="precio" id="precio">
             </div>
-
+        
             <div class="div-button">
-                <button class="buttonn" type="submit">AGREGAR NUEVO PRODUCTO</button>
+                <button class="buttonn" type="submit">CREAR</button>
             </div>
-
+        
         </div>
 
     </form>
