@@ -36,7 +36,7 @@ router.get('/:id/', productsController.detalle);
 
 //editar
 router.get('/:id/edit', productsController.edit);
-router.put('/edit', upload.single("archivo"), productsController.update);
+router.put('/:id/edit', upload.single("archivo"), productsController.update);
 
 console.log('hola');
 router.delete('/:id', productsController.destroy);

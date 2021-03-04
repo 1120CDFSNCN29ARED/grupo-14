@@ -22,66 +22,18 @@
   "imagen": "Oliden-687.jpg"
  },
  {
-  "id": 3,
-  "name": "Ramon falcon 1680",
-  "precio": 200000,
-  "destacado": true,
-  "descripcion": "Departamento grande con cochera",
-  "direccion": "Ramon falcon 1680",
-  "antiguedad": 5,
-  "superficieTotal": 150,
-  "superficieCubierta": 130,
-  "superficieDescubierta": 20,
-  "idAgente": 4,
-  "balcon": true,
-  "cocinaIntegrada": true,
-  "banios": 2,
-  "cocheras": 1,
-  "dormitorios": 3,
-  "ambientes": 6,
-  "admiteMascota": true,
-  "barrio": "palermo",
-  "imagen": "Ramon-falcon-1680.jpeg"
- },
- {
-  "id": 4,
-  "name": "Tonelero 700",
-  "precio": 120000,
-  "destacado": true,
-  "descripcion": "Departamento mediano",
-  "direccion": "Tonelero 700",
-  "antiguedad": 9,
-  "superficieTotal": 100,
-  "superficieCubierta": 100,
-  "superficieDescubierta": 0,
-  "idAgente": 3,
-  "balcon": false,
-  "cocinaIntegrada": true,
-  "banios": 1,
-  "cocheras": 1,
-  "dormitorios": 1,
-  "ambientes": 3,
-  "admiteMascota": true,
-  "barrio": "colegiales",
-  "imagen": "Tonelero-700.jpg"
- },
- {
-  "id": 5,
-  "name": "sadfsdaf",
-  "precio": 0,
-  "descripcion": ""
- },
- {
-  "id": 6,
-  "name": "algo",
-  "precio": 1000,
-  "descripcion": "cualquiera"
- },
- {
-  "id": 7,
-  "name": "algo",
-  "precio": 1000,
-  "descripcion": "totalmente",
-  "imagen": "1614790331327.jpg"
+  "name": [
+   "Oliden",
+   "Oliden",
+   "1",
+   "70",
+   "20",
+   "1",
+   "0",
+   "1",
+   "2",
+   "belgrano"
+  ],
+  "precio": 80000
  }
 ]

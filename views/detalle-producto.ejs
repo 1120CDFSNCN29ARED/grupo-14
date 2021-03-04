@@ -13,18 +13,30 @@
     <h1 class="product-title">Detalle de la propiedad</h1>
     <div class="product-container">
 
-        <img src="/img/producto 2.jpg" alt="" class="product-img">
+        <img src="/img/<%= product.image %>" alt="" class="product-img">
 
         <div class="principal-desc">
+<<<<<<< HEAD
             <h3 class="product-price"><%=product.precio%></h3>
                 <h3 class="product-direcc"><%=product.direccion%></h3>
+=======
+            <h3 class="product-price">
+                <%=product.precio%>
+                    </h2>
+                    <h3 class="product-direcc">
+                        <%=product.direccion%>
+                    </h3>
+>>>>>>> 1972d3f749d135b6ecf809a39af6c2435c169771
 
         </div>
         <div class="product-desc">
-            <h3>Departamento · 74m² · 3 Ambientes · 1 Cochera</h3>
+            <h3>Departamento ·
+                <%= product.superficieTotal%>m² ·
+                    <%= product.ambientes%> Ambientes ·
+                        <%= product.cocheras%> Cochera</h3>
         </div>
         <div class="icon-desc">
-            <h4><i class="fas fa-ruler-combined"><%= product.superficieTotal%>m2</i> 
+            <h4><i class="fas fa-ruler-combined"><%= product.superficieTotal%>m2</i>
                 <i class="fas fa-door-open"> <%= product.ambientes%> ambientes</i>
                 <i class="fas fa-toilet"> <%= product.banios%> baño</i>
                 <i class="fas fa-car"> <%= product.cocheras%> cochera</i>
