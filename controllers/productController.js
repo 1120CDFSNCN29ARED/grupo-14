@@ -78,23 +78,42 @@ const controller = {
                 name: req.body.name,
                 precio: Number(req.body.precio),
                 descripcion: req.body.descripcion,
+                antiguedad: req.body.antiguedad,
+                superficieCubierta: req.body.superficieCubierta,
+                superficieDescubierta: req.body.superficieDescubierta,
+                banios: req.body.banios,
+                cocheras: req.body.cocheras,
+                dormitorios: req.body.dormitorios,
+                ambientes: req.body.ambientes,
+                barrio: req.body.barrio,
+                destacado: req.body.destacado,
                 imagen: req.file.filename
             }
         } else {
             productACambiar = {
+                id: id,
                 name: req.body.name,
                 precio: Number(req.body.precio),
                 descripcion: req.body.descripcion,
+                antiguedad: req.body.antiguedad,
+                superficieCubierta: req.body.superficieCubierta,
+                superficieDescubierta: req.body.superficieDescubierta,
+                banios: req.body.banios,
+                cocheras: req.body.cocheras,
+                dormitorios: req.body.dormitorios,
+                ambientes: req.body.ambientes,
+                barrio: req.body.barrio,
+                destacado: req.body.destacado,
             }
         }
         console.log("product a cambiar es" + productACambiar);
-        products.splice(index, 1);
+        //products.splice(index - 1, 1);
         console.log("product despues de splice " + products);
-        products.splice(index, 1, productACambiar);
+        //products.splice(index - 1, 1, productACambiar);
         console.log(products);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-
-        res.redirect(`/producto/${id}`);
+        res.send(products);
+        //res.redirect(`/producto/${id}`);
     },
 
     destroy: (req, res) => {

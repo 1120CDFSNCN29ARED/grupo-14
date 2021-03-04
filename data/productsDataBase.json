@@ -1,40 +1,32 @@
 [
  {
-  "id": 2,
-  "name": "Oliden 687",
+  "id": "2",
+  "name": "Oliden",
   "precio": 80000,
-  "destacado": true,
   "descripcion": "Departamento mediano con valcon",
-  "direccion": "Oliden 687",
-  "antiguedad": 1,
-  "superficieTotal": 120,
-  "superficieCubierta": 70,
-  "superficieDescubierta": 20,
-  "idAgente": 2,
-  "balcon": true,
-  "cocinaIntegrada": true,
-  "banios": 1,
-  "cocheras": 0,
-  "dormitorios": 1,
-  "ambientes": 2,
-  "admiteMascota": false,
+  "antiguedad": "1",
+  "superficieCubierta": "70",
+  "superficieDescubierta": "20",
+  "banios": "1",
+  "cocheras": "0",
+  "dormitorios": "1",
+  "ambientes": "4",
   "barrio": "belgrano",
-  "imagen": "Oliden-687.jpg"
-  
+  "destacado": "on"
  },
  {
-  "name": [
-   "Oliden",
-   "Oliden",
-   "1",
-   "70",
-   "20",
-   "1",
-   "0",
-   "1",
-   "2",
-   "belgrano"
-  ],
-  "precio": 80000
+  "id": "3",
+  "name": "Oliden",
+  "precio": 80000,
+  "descripcion": "Departamento mediano con valcon",
+  "antiguedad": "1",
+  "superficieCubierta": "70",
+  "superficieDescubierta": "20",
+  "banios": "1",
+  "cocheras": "0",
+  "dormitorios": "1",
+  "ambientes": "4",
+  "barrio": "belgrano",
+  "destacado": "on"
  }
 ]
