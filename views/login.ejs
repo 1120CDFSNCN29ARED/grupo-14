@@ -18,6 +18,7 @@
     </div>
     <div class="division">
         <form action="/login" method="POST">
+            <div class="form-background">
             <label class="ingreso">Complete los siguientes datos para ingresar a su cuenta</label>
             <div class="input-box">
                 <input class="input" type="text" id="email" name="email" placeholder="Correo Electrónico">
@@ -32,7 +33,9 @@
             <div class="input-button">
                 <input class="login-button" type="submit" value="Enviar">
             </div>
+        </div>
         </form>
+        
     </div>
     <footer>
         <%- include("./partials/footer") %>

@@ -1,8 +1,9 @@
 #foto-home img {
     max-width: 100%;
-    height: auto;
+    height: 600px;
     display: block;
-    opacity: 50%;
+    opacity: 45%;
+    width: 100vw;
 }
 
 .texto-centrado1 {
@@ -72,6 +73,10 @@
 
 .boton {
     margin-top: 10px;
+}
+.login-button:hover {
+    background-color: #59766C;
+    color: #fff;
 }
 
 .contacto {
