@@ -28,52 +28,57 @@
 
             <div class="div-box">
                 <label class="labell" for="name">Direccion</label>
-                <input class="inputt" type="text" name="name" id="name" value=<%=product.direccion%>>
+                <input class="inputt" type="text" name="direccion" id="name" value=<%=product.direccion%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">Antiguedad</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.antiguedad%>>
+                <input class="inputt" type="number" name="antiguedad" id="name" value=<%=product.antiguedad%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">Superficie Cubierta</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.superficieCubierta%>>
+                <input class="inputt" type="number" name="superficieCubierta" id="name" value=<%=product.superficieCubierta%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">Superficie Descubierta</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.superficieDescubierta%>>
+                <input class="inputt" type="number" name="superficieDescubierta" id="name" value=<%=product.superficieDescubierta%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">banios</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.banios%>>
+                <input class="inputt" type="number" name="banios" id="name" value=<%=product.banios%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">cocheras</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.cocheras%>>
+                <input class="inputt" type="number" name="cocheras" id="name" value=<%=product.cocheras%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">dormitorios</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.dormitorios%>>
+                <input class="inputt" type="number" name="dormitorios" id="name" value=<%=product.dormitorios%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">ambientes</label>
-                <input class="inputt" type="number" name="name" id="name" value=<%=product.ambientes%>>
+                <input class="inputt" type="number" name="ambientes" id="name" value=<%=product.ambientes%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="name">barrio</label>
-                <input class="inputt" type="text" name="name" id="name" value=<%=product.barrio%>>
+                <input class="inputt" type="text" name="barrio" id="name" value=<%=product.barrio%>>
+            </div>
+
+            <div class="div-box">
+                <label class="labell" for="name">destacado</label>
+                <input class="inputt" type="checkbox" name="destacado" id="name" <%if(product.destacado){%>checked<%}%>>
             </div>
 
             <div class="div-box">
                 <label class="labell" for="img">Imagen del producto</label>
-                <input class="inputt" type="file" name="archivo" id="archivo">
+                <input class="inputt" type="file" name="imagen" id="archivo">
             </div>
 
             <div class="div-box">

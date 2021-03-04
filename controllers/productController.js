@@ -11,7 +11,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 
-    index: (req, res) => {
+    producto: (req, res) => {
         //console.log(products);
         res.render("producto", { products: products });
     },
