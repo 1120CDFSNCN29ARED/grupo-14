@@ -61,7 +61,7 @@ const controller = {
     update: (req, res) => {
         // Do the magic
 
-        const id = req.params.id;
+        let id = req.params.id;
         let productACambiar = products.find((prod) => {
             return prod.id == id;
         })
