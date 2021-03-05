@@ -8,6 +8,7 @@
 
 .footer-item {
     margin: 20px;
+    width: 50%;
     
 }
 .footer-item .footer-title {
@@ -24,9 +25,21 @@
     color: #fff;
 }
 
+.copyright {
+    background-color: black;
+    color: #fff;
+    font-size: 15px;
+}
+
+.copy-item {
+    padding: 5px;
+    font-family: "Roboto", sans-serif;
+}
+
 @media (min-width:768px) {
     .footer-item {
         margin-bottom: 5px;
+        width: 50%;
     }
 
     .footer-item .footer-title {
