@@ -16,18 +16,23 @@
         <img src="/img/<%= product.image %>" alt="" class="product-img">
 
         <div class="principal-desc">
-            <h3 class="product-price"><%=product.precio%></h3>
-                <h3 class="product-direcc"><%=product.direccion%></h3>
+            <h3 class="product-price">
+                <%=product.precio%>
+            </h3>
+            <h3 class="product-direcc">
+                <%=product.direccion%>
+            </h3>
 
         </div>
         <div class="product-desc">
             <h3>Departamento ·
-                <%= product.superficieTotal%>m² ·
-                    <%= product.ambientes%> Ambientes ·
-                        <%= product.cocheras%> Cochera</h3>
+                <% let superficieTotal = Number(product.superficieCubierta) + Number(product.superficieDescubierta) %>
+                    <%= superficieTotal %>m² ·
+                        <%= product.ambientes%> Ambientes ·
+                            <%= product.cocheras%> Cochera</h3>
         </div>
         <div class="icon-desc">
-            <h4><i class="fas fa-ruler-combined"><%= product.superficieTotal%>m2</i>
+            <h4><i class="fas fa-ruler-combined"><%= superficieTotal%>m2</i>
                 <i class="fas fa-door-open"> <%= product.ambientes%> ambientes</i>
                 <i class="fas fa-toilet"> <%= product.banios%> baño</i>
                 <i class="fas fa-car"> <%= product.cocheras%> cochera</i>

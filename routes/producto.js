@@ -8,9 +8,6 @@ const productsController = require('../controllers/productController');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const folder = path.join(__dirname, "../public/img/products");
-        if (file.mimetype != "image/jpeg") {
-            return cb(new Error("Solo se aceptan imagenes en jpg"));
-        }
         cb(null, folder);
 
     },
@@ -29,14 +26,14 @@ router.get('/', productsController.producto);
 router.get('/create/', productsController.create);
 
 
-router.post('/', upload.single("archivo"), productsController.store);
+router.post('/', upload.single("imagen"), productsController.store);
 
 //detalle del producto
 router.get('/:id/', productsController.detalle);
 
 //editar
 router.get('/:id/edit', productsController.edit);
-router.put('/:id/edit', upload.single("archivo"), productsController.update);
+router.put('/:id/edit', upload.single("imagen"), productsController.update);
 
 console.log('hola');
 router.delete('/:id', productsController.destroy);

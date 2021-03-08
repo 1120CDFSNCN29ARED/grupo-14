@@ -67,7 +67,7 @@ const controller = {
             return prod.id == id;
         })
         console.log(index);
-        let productACambiar = products[index];
+        let productACambiar = products[index - 1];
         console.log(productACambiar);
         //const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
         //const filename = req.file.filename;
@@ -106,14 +106,13 @@ const controller = {
                 destacado: req.body.destacado,
             }
         }
-        console.log("product a cambiar es" + productACambiar);
-        //products.splice(index - 1, 1);
-        console.log("product despues de splice " + products);
-        //products.splice(index - 1, 1, productACambiar);
-        console.log(products);
+        console.log("product a cambiar es" + JSON.stringify(productACambiar));
+        //products.splice(index - 1, 0);
+        //products.splice(index - 1, 0, productACambiar)
+        console.log("product despues de splice " + JSON.stringify(products));
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.send(products);
-        //res.redirect(`/producto/${id}`);
+        //res.send(products);
+        res.redirect(`/producto/${id}`);
     },
 
     destroy: (req, res) => {

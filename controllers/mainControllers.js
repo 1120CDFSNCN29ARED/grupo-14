@@ -9,9 +9,6 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const folder = path.join(__dirname, "../public/img/products");
-        if (file.mimetype != "image/jpeg") {
-            return cb(new Error("Solo se aceptan imagenes en jpg"));
-        }
         cb(null, folder);
 
     },
