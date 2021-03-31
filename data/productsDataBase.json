@@ -43,5 +43,15 @@
   "ambientes": "4",
   "barrio": "belgrano",
   "destacado": "on"
+ },
+ {
+  "id": 4,
+  "nombre": "1qwe",
+  "email": "rtewqrw@gmail.com",
+  "contraseña": "qwe"
+ },
+ {
+  "id": 5,
+  "nombre": null
  }
 ]

@@ -1,36 +1,87 @@
-[{
-        "id": 1,
-        "nombre": "Palermo Martin",
-        "email": "palermomartin123@gmail.com",
-        "contraseña": "contraseña",
-        "imagen": "palermo-martin.jpg"
-    },
-    {
-        "id": 2,
-        "nombre": "Barri Lete",
-        "email": "barrilete@gmail.com",
-        "contraseña": "contraseña",
-        "imagen": "barri-lete.jpg"
-    },
-    {
-        "id": 3,
-        "nombre": "Aitor Tilla",
-        "email": "aitortilla@gmail.com",
-        "contraseña": "contraseña",
-        "imagen": "aitor-tilla.jpg"
-    },
-    {
-        "id": 4,
-        "nombre": "Susana Oria",
-        "email": "susanaoria@gmail.com",
-        "contraseña": "contraseña",
-        "imagen": "susana-oria.jpg"
-    },
-    {
-        "id": 5,
-        "nombre": "Victor Tazo",
-        "email": "victortazo@gmail.com",
-        "contraseña": "contraseña",
-        "imagen": "victor-tazo.jpg"
-    }
+[
+ {
+  "id": 1,
+  "nombre": "Palermo Martin",
+  "email": "palermomartin123@gmail.com",
+  "contraseña": "contraseña",
+  "imagen": "palermo-martin.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Barri Lete",
+  "email": "barrilete@gmail.com",
+  "contraseña": "contraseña",
+  "imagen": "barri-lete.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Aitor Tilla",
+  "email": "aitortilla@gmail.com",
+  "contraseña": "contraseña",
+  "imagen": "aitor-tilla.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Susana Oria",
+  "email": "susanaoria@gmail.com",
+  "contraseña": "contraseña",
+  "imagen": "susana-oria.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "Victor Tazo",
+  "email": "victortazo@gmail.com",
+  "contraseña": "contraseña",
+  "imagen": "victor-tazo.jpg"
+ },
+ {
+  "id": 6,
+  "name": "123",
+  "lastname": "123",
+  "email": "123@gmail.com",
+  "dni": "123",
+  "password": "$2a$10$8I6HQPxkUeFVO6rj/PwcsO/0UWtnBEL1kGNfGbNphR1s/35QSrVHa",
+  "password2": "123",
+  "avatar": "1617163492582_img.jpg"
+ },
+ {
+  "id": 7,
+  "name": "qwe",
+  "lastname": "213",
+  "email": "ora@gmail.com",
+  "dni": "3",
+  "password": "$2a$10$1l8dAKS9RpscKgqSlbLJU./sCdrx4X.ML8qiipHIceAWE3VEqaPk2",
+  "password2": "ora99",
+  "avatar": "1617167123076_img.jpg"
+ },
+ {
+  "id": 8,
+  "name": "qwe",
+  "lastname": "213",
+  "email": "ora12@gmail.com",
+  "dni": "3",
+  "password": "$2a$10$auZKSC76L5KXVPGlwEN9g.2xm5rXa/7nBxL89If1Bmo8/z6KJtHWG",
+  "password2": "ora12",
+  "avatar": "1617167616128_img.gif"
+ },
+ {
+  "id": 9,
+  "name": "qwe",
+  "lastname": "213",
+  "email": "ora123@gmail.com",
+  "dni": "3",
+  "password": "$2a$10$ONnbN/bw70O2hvNpk7/97uKCmA1TD8KVsdp4oWtd2oHXjAwFLJNIi",
+  "password2": "Ora12",
+  "avatar": "1617167654696_img.gif"
+ },
+ {
+  "id": 10,
+  "name": "t",
+  "lastname": "t",
+  "email": "t@gmail.com",
+  "dni": "1",
+  "password": "$2a$10$S.wQDOfIPlt74UU20O5.sOGFwjMfkprQ6OiGE.0VDTWHsjUASY7q.",
+  "password2": "Cosa1",
+  "avatar": "1617169814381_img.gif"
+ }
 ]

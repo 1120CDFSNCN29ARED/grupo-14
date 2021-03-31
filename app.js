@@ -4,8 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//routas
 var indexRouter = require('./routes/index');
 var productRouter = require('./routes/producto');
+var userRouter = require('./routes/users');
 const methodOverride = require('method-override');
 
 
@@ -28,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/producto', productRouter);
+app.use('/user', userRouter);
 
 
 
