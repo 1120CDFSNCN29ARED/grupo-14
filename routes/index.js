@@ -12,6 +12,10 @@ router.get('/contact', function(req, res) {
     res.render('contact', { title: 'Express' })
 });
 
+router.get('/perfil', function (req, res) {
+    res.render('perfil', { title: 'Express' })
+});
+
 router.get('/login', function(req, res) {
     res.render('login', { title: 'Express' })
 });

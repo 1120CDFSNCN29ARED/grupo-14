@@ -43,19 +43,28 @@ const controller = {
     },
 
     login: (req,res) => {
+        
         return res.render('login');
     },
 
     loginProcess: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
         
+        /*no funciona por alguna razon
         if(userToLogin){
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword){
                 return res.send('puedes ingresar')
             }
-        }
-
+        }*/
+        console.log(userToLogin);
+        if (userToLogin) {
+            console.log("hola");
+            req.session.userLogged = userToLogin;
+            return res.redirect('/user/profile');
+            }
+        
+        
         return res.render('login',{
             errors: {
                 email: {
@@ -66,8 +75,15 @@ const controller = {
     },
 
     profile: (req, res) => {
-        return res.render('userProfile');
+        return res.render('perfil', {
+            user: req.session.userLogged
+        });
     },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.redirect('/');
+    }
 }
 
 module.exports = controller;

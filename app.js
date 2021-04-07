@@ -9,9 +9,25 @@ var indexRouter = require('./routes/index');
 var productRouter = require('./routes/producto');
 var userRouter = require('./routes/users');
 const methodOverride = require('method-override');
+const session = require('express-session');
 
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 var app = express();
+
+
+
+
+
+app.use(session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+}));
+
+
+app.use(userLoggedMiddleware);
+
 
 //app.listen(3001);
 
