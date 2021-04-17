@@ -50,13 +50,13 @@ const controller = {
     loginProcess: (req, res) => {
         let userToLogin = User.findByField('email', req.body.email);
         
-        /*no funciona por alguna razon
+        
         if(userToLogin){
             let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword){
                 return res.send('puedes ingresar')
             }
-        }*/
+        }
         console.log(userToLogin);
         if (userToLogin) {
             console.log("hola");
