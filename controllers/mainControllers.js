@@ -40,7 +40,7 @@ const controller = {
             nombre: req.body.name + req.body.lastname,
             email: req.body.email,
             contraseña: req.body.password,
-            //imagen: req.body.description,
+            //imagen: req.body.description, 
         };
         products.push(newProduct);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));

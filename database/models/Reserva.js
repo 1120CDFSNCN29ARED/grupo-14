@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize/types");
 
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Reservas";
+    let alias = "Reserva";
     let cols = {
         reservaId: {
             type: DataTypes.INTEGER,
