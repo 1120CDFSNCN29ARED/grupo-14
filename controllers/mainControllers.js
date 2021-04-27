@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 var multer = require('multer');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const {Agent, Propiedad,Reserva,User} = require('../database/models');
+const {Op} = require('sequelize');
+//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const storage = multer.diskStorage({
@@ -26,7 +27,9 @@ const controller = {
 
     index: (req, res) => {
         //console.log(products);
-        res.render("index", { products: products });
+        Propiedad.findAll().then((propiedades)=>{
+            res.render("index", { products: propiedades });
+        });
     },
 
     agente: (req, res) => {

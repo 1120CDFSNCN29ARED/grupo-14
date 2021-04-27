@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
-const router = require('../routes');
-
-const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+var multer = require('multer');
+const {Agent, Propiedad,Reserva,User} = require('../database/models');
+const {Op} = require('sequelize');
+//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
+//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -11,18 +12,20 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const controller = {
 
-    producto: (req, res) => {
+    producto: (req, res) => { //todos los productos
         //console.log(products);
-        res.render("producto", { products: products });
+        Propiedad.findAll().then((propiedades)=>{
+            res.render("producto", { products: propiedades  });
+        });
     },
 
-    detalle: (req, res) => {
+    detalle: (req, res) => { //detalle de UN producto
         const id = req.params.id;
-        const product = products.find((prod) => {
-            return prod.id == id;
-        })
-
-        res.render("detalle-producto", { product, toThousand });
+        Propiedad.findByPk(req.params.id,{
+            include:["Agent"],
+        }).then((Propiedad)=>{
+            res.render("detalle-producto", {product :Propiedad , toThousand});
+        });
     },
 
     create: (req, res) => {
@@ -34,85 +37,29 @@ const controller = {
     edit: (req, res) => {
         // Do the magic
         const id = req.params.id;
-        console.log(id);
-        const product = products.find((prod) => {
-            return prod.id == id;
-        })
-        res.render("editarProducto", { product })
+        Propiedad.findByPk(req.params.id,{
+            include:["Agent"],
+        }).then((Propiedad)=>{
+            res.render("editarProducto", {product : Propiedad, toThousand});
+        });
     },
 
     store: (req, res) => {
-        // Do the magic
-        //.res.send(req.body);
-        const filename = req.file.filename
-        newId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
-        const newProduct = {
-            id: newId,
-            name: req.body.name,
-            precio: Number(req.body.precio),
-            descripcion: req.body.comentario,
-            imagen: filename
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        //res.render("detalle-producto", { product: newProduct, toThousand })
-        res.redirect(`/producto/${newId}`);
+        producto.create(req.body).then((productoNuevo)=>{
+            res.redirect(`/producto/${productoNuevo.propiedadId}`);
+        });
     },
 
     update: (req, res) => {
         // Do the magic
 
-        const id = req.params.id;
-        let index = products.indexOf((prod) => {
-            return prod.id == id;
-        })
-        console.log(index);
-        let productACambiar = products[index - 1];
-        console.log(productACambiar);
-        //const filename = req.file ? req.file.filename : prodctuACambiar.imagen;
-        //const filename = req.file.filename;
-        console.log("el req file es : " + req.file);
-        if (req.file != undefined) {
-            productACambiar = {
-                id: id,
-                name: req.body.name,
-                precio: Number(req.body.precio),
-                descripcion: req.body.descripcion,
-                antiguedad: req.body.antiguedad,
-                superficieCubierta: req.body.superficieCubierta,
-                superficieDescubierta: req.body.superficieDescubierta,
-                banios: req.body.banios,
-                cocheras: req.body.cocheras,
-                dormitorios: req.body.dormitorios,
-                ambientes: req.body.ambientes,
-                barrio: req.body.barrio,
-                destacado: req.body.destacado,
-                imagen: req.file.filename
-            }
-        } else {
-            productACambiar = {
-                id: id,
-                name: req.body.name,
-                precio: Number(req.body.precio),
-                descripcion: req.body.descripcion,
-                antiguedad: req.body.antiguedad,
-                superficieCubierta: req.body.superficieCubierta,
-                superficieDescubierta: req.body.superficieDescubierta,
-                banios: req.body.banios,
-                cocheras: req.body.cocheras,
-                dormitorios: req.body.dormitorios,
-                ambientes: req.body.ambientes,
-                barrio: req.body.barrio,
-                destacado: req.body.destacado,
-            }
-        }
-        console.log("product a cambiar es" + JSON.stringify(productACambiar));
-        //products.splice(index - 1, 0);
-        //products.splice(index - 1, 0, productACambiar)
-        console.log("product despues de splice " + JSON.stringify(products));
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        //res.send(products);
-        res.redirect(`/producto/${id}`);
+        Propiedad.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        }).then(() => {
+            res.redirect(`/producto/${req.params.id}`);
+        });
     },
 
     destroy: (req, res) => {
