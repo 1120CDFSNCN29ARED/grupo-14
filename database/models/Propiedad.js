@@ -1,3 +1,5 @@
+const Reserva = require("./Reserva");
+
 module.exports = (sequelize, dataTypes) => {
     let alias = "Propiedad";
     let cols = {
@@ -59,5 +61,20 @@ module.exports = (sequelize, dataTypes) => {
     };
 
 const Propiedad = sequelize.define(alias,cols,config);
+
+Propiedad.associate = function (models) {
+    Propiedad.hasMany(models.Reserva, {
+        as: "reserva",
+        foreignKey: "propiedadId"
+    })
+};
+
+Propiedad.associate = function (models) {
+    Propiedad.hasMany(models.Agent, {
+        as: "agente",
+        foreignKey: "agenteId"
+    })
+};
+
 return Propiedad;
 }

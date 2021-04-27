@@ -28,6 +28,15 @@ module.exports = (sequelize, dataTypes) => {
         timestamps: false
     };
 
+    
     const Agent = sequelize.define(alias, cols, config);
+
+    Agent.associate = function (models) {
+        Agent.hasMany(models.Propiedad, {
+            as: "propiedad",
+            foreignKey: "agenteId"
+        })
+    };
+
     return Agent;
 }
