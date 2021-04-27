@@ -45,7 +45,8 @@ const controller = {
     },
 
     store: (req, res) => {
-        producto.create(req.body).then((productoNuevo)=>{
+        Propiedad.findAll()
+        Propiedad.create(req.body).then((productoNuevo)=>{
             res.redirect(`/producto/${productoNuevo.propiedadId}`);
         });
     },
