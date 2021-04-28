@@ -1,24 +1,22 @@
-const { DataTypes } = require("sequelize/types");
-
 module.exports = (sequelize, dataTypes) => {
     let alias = "Reserva";
     let cols = {
         reservaId: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
         propiedadId: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         precioDeReserva: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         status: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         customerId: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         }
     };
 

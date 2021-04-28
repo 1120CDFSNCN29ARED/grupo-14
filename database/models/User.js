@@ -2,21 +2,21 @@ module.exports = (sequelize, dataTypes) => {
     let alias = "User";
     let cols = {
         userId: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
         nombre: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         email: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         constaseña: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         imagen: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         }
     };
 

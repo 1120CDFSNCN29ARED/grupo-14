@@ -4,54 +4,54 @@ module.exports = (sequelize, dataTypes) => {
     let alias = "Propiedad";
     let cols = {
         propiedadId: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
         name: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         agenteId: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
         },
         precio: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         descripcion: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         antiguedad: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         superficieCubierta: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         superficieDescubierta: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         banios: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         cocheras: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         dormitorios: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         ambientes: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         },
         barrio: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         destacado: {
-            type: DataTypes.BOOLEAN
+            type: dataTypes.BOOLEAN
         },
         reservado: {
-            type: DataTypes.BOOLEAN
+            type: dataTypes.BOOLEAN
         },
         precioDeReserva: {
-            type: DataTypes.INTEGER
+            type: dataTypes.INTEGER
         }
     };
 

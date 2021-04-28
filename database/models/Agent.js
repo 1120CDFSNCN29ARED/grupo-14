@@ -2,24 +2,24 @@ module.exports = (sequelize, dataTypes) => {
     let alias = "Agent";
     let cols = {
         agenteId: {
-            type: DataTypes.INTEGER,
+            type: dataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
         customerName: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         nombre: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         email: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         constaseña: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         },
         imagen: {
-            type: DataTypes.STRING
+            type: dataTypes.STRING
         }
     };
 
