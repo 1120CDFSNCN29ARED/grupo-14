@@ -74,17 +74,18 @@ const controller = {
         // console.log(rangoDePrecios);
         const precioMin = Number(rangoDePrecios) * 10000;
         const precioMax = precioMin + 10000;
-        let productsFiltered = products.filter(product => {
-            if (5 == Number(rangoDePrecios)) {
-                return product.direccion.includes(ubicacion) && product.barrio.includes(barrio);
-            } else if (precioMin > product.precio && product.precio <= precioMax) {
-                //está dentro del rango
-                return product.direccion.includes(ubicacion) && product.barrio.includes(barrio);
+        Propiedad.findAll({
+            where:{
+                [Op.and]:{
+                    barrio: {[Op.like]:`%${barrio}%`},
+                    precio:{[Op.between]:[precioMin,precioMax]},
+                    direccion:{[Op.like]:`%${ubicacion}%`}
+                }
             }
-        });
-        //console.log(productsFiltered);
-        res.render("results", { productsFiltered });
-    },
+        }).then((propiedades)=>{
+            res.render("results",{productsFiltered:propiedades})
+        })
+    }
 
 };
 

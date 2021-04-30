@@ -65,17 +65,12 @@ const controller = {
 
     destroy: (req, res) => {
         // Do the magic
-        const productsFilter = products.filter((prod) => {
-            return prod.id != req.params.id;
-        });
-        console.log("hola");
-        /*const productIndex = products.findIndex((prod)=>{
-        	return.prod.id == req.params.id;
-        });
-        products.splice(productsIndex, 1); */
-        fs.writeFileSync(productsFilePath, JSON.stringify(productsFilter, null, " "));
-        res.redirect("/");
-
+        let productId = req.params.id;
+        Propiedad
+        .destroy({where: {id: productId}, force: true}) // force: true es para asegurar que se ejecute la acción
+        .then(()=>{
+            return res.redirect('/')})
+        .catch(error => res.send(error)) 
     }
 
 
