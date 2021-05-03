@@ -24,7 +24,6 @@ router.get('/register', function(req, res) {
     res.render('register', { title: 'Express' })
 });
 
-router.post('/', mainController.createUser)
 
 //router.get('/nuevoProducto', function(req, res) {
 //  res.render('nuevoProducto', { title: 'Express' })

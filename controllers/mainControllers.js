@@ -50,19 +50,6 @@ const controller = {
         res.redirect("/");
     },
 
-    createUser: (req, res) => {
-        newId = products.length > 0 ? products[products.length - 1].id + 1 : 1;
-        const newProduct = {
-            id: products.length + 1,
-            nombre: req.body.name + req.body.lastname,
-            email: req.body.email,
-            contraseña: req.body.password,
-            //imagen: req.body.description,
-        };
-        products.push(newProduct);
-        fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
-        res.redirect("/");
-    },
 
     search: (req, res) => {
         // meter un filter
