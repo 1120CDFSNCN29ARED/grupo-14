@@ -49,7 +49,13 @@ const controller = {
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, " "));
         res.redirect("/");
     },
+    login:(req,res)=>{
+        res.render("login");
+    },
 
+    loginProcessAgente:(req,res)=>{
+        //something
+    },
 
     search: (req, res) => {
         // meter un filter
