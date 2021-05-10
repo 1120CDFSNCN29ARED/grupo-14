@@ -30,12 +30,13 @@ const controller = {
 
     create: (req, res) => {
         // Do the magic
-
+        //agregar validaciones de producto
         res.render("nuevoProducto");
     },
 
     edit: (req, res) => {
         // Do the magic
+        //agregar mismas validaciones que create
         const id = req.params.id;
         Propiedad.findByPk(req.params.id,{
             include:["Agent"],

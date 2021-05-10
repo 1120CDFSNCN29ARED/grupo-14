@@ -1,8 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 var multer = require('multer');
-const {Agent, Propiedad,Reserva,User} = require('../database/models');
+
+
+
+
 const {Op} = require('sequelize');
+const db = require('../database/models');
+const sequelize = db.sequelize;
+
+
+
 //const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -27,7 +35,7 @@ const controller = {
 
     index: (req, res) => {
         //console.log(products);
-        Propiedad.findAll().then((propiedades)=>{
+        db.Propiedad.findAll().then((propiedades)=>{
             res.render("index", { products: propiedades });
         });
     },
@@ -67,7 +75,7 @@ const controller = {
         // console.log(rangoDePrecios);
         const precioMin = Number(rangoDePrecios) * 10000;
         const precioMax = precioMin + 10000;
-        Propiedad.findAll({
+        db.Propiedad.findAll({
             where:{
                 [Op.and]:{
                     barrio: {[Op.like]:`%${barrio}%`},

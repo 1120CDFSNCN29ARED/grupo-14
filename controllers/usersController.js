@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const User = require('../models/Users');
+const User = require('../database/models/User');
 const bcrypt = require('bcryptjs');
 const e = require('express');
 
@@ -21,7 +21,7 @@ const controller = {
         }
 
         let userInDB = User.findByField('email', req.body.email);
-        
+        //agregar que la pass tenga minimo 8 caracteres
         if (userInDB) {
             return res.render('register',{
                 errors: {
