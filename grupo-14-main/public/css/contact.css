@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgrey;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    font-size: 1em;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+h1.contact-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    padding: 5px;
+}
+
+h2.sub-contact {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin: 15px;
+} 
+
+.nav-item {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    padding: 2px;
+}
+
+.form-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-box {
+    margin: 5px;
+    padding: 2px;
+}
+.input {
+    padding: 4px;
+}
+
+#cuadro {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.contact-question {
+    margin: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.input-button {
+    margin-bottom: 15px;
+}
+
+.register-button {
+    padding: 5px;
+    font-size: 15px;
+}
+
+.register-button:hover {
+    background-color: #59766C;
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .img-contact {
+        max-height: 47vw;
+    }
+    h2.sub-contact {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .nav-item {
+        font-size: 20px;
+        padding: 5px;
+    }
+
+    .input {
+        display: block;
+        width: 100%;
+        font-size: 1.5em;
+        border: 2psx solid black;
+        border-radius: 8px;
+        padding: 8px;
+    }
+    .contact-question {
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    .cuadro {
+        width: 50%;
+    }
+
+    .register-button {
+        padding: 10px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1200px) {
+    h1.contact-title {
+        font-size: 40px;
+        padding: 10px;
+    }
+    .img-contact {
+        max-height: 34vw;
+    }
+}

@@ -1,0 +1,57 @@
+[
+ {
+  "id": "2",
+  "name": "Oliden0",
+  "precio": 80000,
+  "descripcion": "Departamento mediano con valcon",
+  "antiguedad": "3",
+  "superficieCubierta": "70",
+  "superficieDescubierta": "20",
+  "banios": "1",
+  "cocheras": "0",
+  "dormitorios": "1",
+  "ambientes": "4",
+  "barrio": "belgrano",
+  "destacado": "on"
+ },
+ {
+  "id": "3",
+  "name": "Oliden0",
+  "precio": 80000,
+  "descripcion": "Departamento mediano con valcon",
+  "antiguedad": "3",
+  "superficieCubierta": "70",
+  "superficieDescubierta": "20",
+  "banios": "1",
+  "cocheras": "0",
+  "dormitorios": "1",
+  "ambientes": "5",
+  "barrio": "belgrano",
+  "destacado": "on"
+ },
+ {
+  "id": "4",
+  "name": "Oliden",
+  "precio": 80000,
+  "descripcion": "Departamento mediano con valcon",
+  "antiguedad": "3",
+  "superficieCubierta": "70",
+  "superficieDescubierta": "20",
+  "banios": "1",
+  "cocheras": "0",
+  "dormitorios": "1",
+  "ambientes": "4",
+  "barrio": "belgrano",
+  "destacado": "on"
+ },
+ {
+  "id": 4,
+  "nombre": "1qwe",
+  "email": "rtewqrw@gmail.com",
+  "contraseña": "qwe"
+ },
+ {
+  "id": 5,
+  "nombre": null
+ }
+]

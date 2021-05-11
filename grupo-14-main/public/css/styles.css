@@ -1,0 +1,138 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightgray;
+}
+
+h2 {
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.label {
+    font-size: 22px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-box {
+    margin: 20px;
+}
+
+.input-box .input {
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.register-button {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.input-button {
+    width: 50%;
+    margin: auto;
+    padding: 15px;
+}
+
+.label-agente {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.search-box {
+    display: block;
+    width: 80%;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 5px;
+}
+
+@media (min-width: 768px) {
+    .form-background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-box {
+        width: 60%;
+        margin: auto;
+        padding: 10px;
+    }
+    p {
+        font-size: 18px;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .input-button {
+        display: flex;
+        justify-content: center;
+        width: 20%;
+    }
+    .search-box {
+        display: block;
+        width: 80%;
+        font-size: 0.9em;
+        border-radius: 8px;
+        padding: 8px;
+        margin: 5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    h2 {
+        font-size: 50px;
+    }
+    .form-background {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-box {
+        margin: 10px;
+        padding: 5px;
+        width: 25vw;
+    }
+    .division {
+        text-align: center;
+        width: 25vw;
+        margin: auto;
+    }
+    .nav-item:hover {
+        background-color: rgba(90, 143, 110, 0.274);
+    }
+
+    .register-button {
+        margin-bottom: 20px;
+    }
+    .register-button:hover {
+        background-color: #59766C;
+        color: #fff;
+    }
+
+}

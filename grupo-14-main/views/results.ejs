@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+</head>
+
+<body>
+    <header class="page-header">
+        <%- include("./partials/header") %>
+    </header>
+
+
+    <h1 class="title"> Nuestras propiedades</h1>
+    <div class="container">
+        <%for(let i = 0 ; i<productsFiltered.length; i++){%>
+            <div class="propiedad">
+                <img src="/img/fachada-edificio.jpg" alt="">
+                <h4>
+                    <%=productsFiltered[i].precio%>
+                </h4>
+                <p>
+                    <%= productsFiltered[i].direccion%> <br> Antiguedad:
+                        <%= productsFiltered[i].antiguedad%> <br> Superficie total:
+                            <%=productsFiltered[i].superficieTotal%>
+                </p>
+                <a href="/products/<%=productsFiltered[i].id%>">Leer más</a> <br>
+                <div>
+                    <button class="btn-propiedad">Contactar un agente</button>
+                </div>
+
+            </div>
+            <% } %>
+
+
+    </div>
+
+
+
+
+
+
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+
+</body>
+
+</html>

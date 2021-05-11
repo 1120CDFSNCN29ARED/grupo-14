@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+</head>
+
+<body>
+    <header class="page-header">
+        <%- include("./partials/header") %>
+    </header>
+
+    <h2>REGISTRO DE AGENTE</h2>
+    <p>Complete los siguientes datos:</p>
+    <form action="/agente" method="POST">
+        <div class="form-background">
+            <div class="input-box">
+                <input class="input" type="text" name="name" id="user-name" placeholder="Nombre" value = <%= locals.oldData ? oldData.name : null %>>
+            </div>
+            <% if (locals.errors && errors.name) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+                <input class="input" type="text" name="lastname" id="user-lastname" placeholder="Apellido" value = <%= locals.oldData ? oldData.lastname : null %>>
+            </div>
+            <% if (locals.errors && errors.lastname) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+                <input class="input" type="email" name="email" id="user-email" placeholder="Correo Electrónico" value = <%= locals.oldData ? oldData.email : null %>>
+            </div>
+            <% if (locals.errors && errors.email) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+
+                <input class="input" type="text" name="dni" id="dni" placeholder="DNI">
+            </div>
+            <div class="input-box">
+                <label for="agente-img" class="label-agente">Ingrese su foto para registrarse como agente</label>
+                <input type="file" name="agente-img" id="agente-img" value = <%= locals.oldData ? oldData.agente-img : null %>>
+            </div>
+            <% if (locals.errors && errors.agente-img) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+
+                <input class="input" type="password" name="password" id="password" placeholder="Contraseña" value = <%= locals.oldData ? oldData.password : null %>>
+            </div>
+            <% if (locals.errors && errors.password) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+
+                <input class="input" type="password" name="password2" id="password" placeholder="Confirmar contraseña" value = <%= locals.oldData ? oldData.password2 : null %>>
+            </div>
+            <% if (locals.errors && errors.password2) { %>
+                <div class="text-danger">
+                    <%= errors.avatar.msg %>
+                </div>
+            <% } %>
+            <div class="input-box">
+                <input type="checkbox" name="terms-cond" id="terms-cond">
+                <label class="label" for="terms-cond">Acepto los "terminos y condiciones"</label>
+            </div>
+
+            <div class="input-box">
+                <input type="checkbox" name="news" id="news">
+                <label class="label" for="news">Quiero recibir emails con noticias, productos y ofertas</label>
+            </div>
+            <div class="input-button">
+                <button class="register-button" type="submit">REGISTRARSE</button>
+            </div>
+        </div>
+
+    </form>
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+</body>
+
+</html>
