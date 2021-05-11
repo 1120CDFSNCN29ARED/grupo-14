@@ -12,7 +12,7 @@
 
     <h2>REGISTRO DE USUARIO</h2>
     <p>Complete los siguientes datos:</p>
-    <form action="/user/register" method="POST" enctype="multipart/form-data">
+    <form action="/user/register" method="POST" enctype="multipart/form-data" id = "form">
         <div class="form-background">
             
             <div class="input-box">
@@ -26,6 +26,7 @@
             <div class="input-box">
                 <input class="input" type="text" name="lastname" id="user-lastname" placeholder="Apellido" placeholder="Nombre" value= <%= locals.oldData ? oldData.lastname : null %>>
             </div>
+           
             <% if (locals.errors && errors.lastname) { %>
                 <div class="text-danger">
                     <%= errors.lastname.msg %>
@@ -34,6 +35,7 @@
             <div class="input-box">
                 <input class="input" type="email" name="email" id="user-email" placeholder="Correo Electrónico" placeholder="Nombre" value= <%= locals.oldData ? oldData.email : null %>>
             </div>
+            
             <% if (locals.errors && errors.email) { %>
                 <div class="text-danger">
                     <%= errors.email.msg %>
@@ -43,6 +45,7 @@
 
                 <input class="input" type="text" name="dni" id="dni" placeholder="DNI" placeholder="Nombre" value= <%= locals.oldData ? oldData.dni : null %>>
             </div>
+            
             <% if (locals.errors && errors.dni) { %>
                 <div class="text-danger">
                     <%= errors.dni.msg %>
@@ -52,6 +55,7 @@
 
                 <input class="input" type="password" name="password" id="password" placeholder="Contraseña" value= <%= locals.oldData ? oldData.password : null %>>
             </div>
+            
             <% if (locals.errors && errors.password) { %>
                 <div class="text-danger">
                     <%= errors.password.msg %>
@@ -59,8 +63,9 @@
             <% } %>
             <div class="input-box">
 
-                <input class="input" type="password" name="password2" id="password" placeholder="Confirmar contraseña" placeholder="Nombre" value= <%= locals.oldData ? oldData.password2 : null %>>
+                <input class="input" type="password" name="password2" id="password2" placeholder="Confirmar contraseña" placeholder="Nombre" value= <%= locals.oldData ? oldData.password2 : null %>>
             </div>
+            
             <% if (locals.errors && errors.password2) { %>
                 <div class="text-danger">
                     <%= errors.password2.msg %>
@@ -68,13 +73,16 @@
             <% } %>
             <div class="input-box">
             
-                <input class="form-controll" type="file" name="avatar">
+                <input class="form-controll" type="file" name="avatar" id ="imagen-user">
             </div>
+            
             <% if (locals.errors && errors.avatar) { %>
                 <div class="text-danger">
                     <%= errors.avatar.msg %>
                 </div>
             <% } %>
+            <div class="alert alert-danger" role="alert" id = "error">
+            </div>
             <div class="input-box">
                 <input type="checkbox" name="terms-cond" id="terms-cond">
                 <label class="label" for="terms-cond">Acepto los "terminos y condiciones"</label>
@@ -85,7 +93,7 @@
                 <label class="label" for="news">Quiero recibir emails con noticias, productos y ofertas</label>
             </div>
             <div class="input-button">
-                <button class="register-button" type="submit">REGISTRARSE</button>
+                <button class="register-button" type="submit" id = "submit-button">REGISTRARSE</button>
             </div>
         </div>
 
