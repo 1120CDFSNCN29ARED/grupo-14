@@ -73,7 +73,7 @@ Propiedad.associate = function (models) {
 };
 
 Propiedad.associate = function (models) {
-    Propiedad.hasMany(models.Agent, {
+    Propiedad.hasMany(models.Agente, {
         as: "agente",
         foreignKey: "agenteId"
     })

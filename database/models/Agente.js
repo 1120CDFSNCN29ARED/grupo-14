@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "Agent";
+    let alias = "Agente";
     let cols = {
         agenteId: {
             type: dataTypes.INTEGER,
@@ -24,19 +24,19 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tablename: "users",
+        tablename: "agentes",
         timestamps: false
     };
 
     
-    const Agent = sequelize.define(alias, cols, config);
+    const Agente = sequelize.define(alias, cols, config);
 
-    Agent.associate = function (models) {
-        Agent.hasMany(models.Propiedad, {
+    Agente.associate = function (models) {
+        Agente.hasMany(models.Propiedad, {
             as: "propiedad",
             foreignKey: "agenteId"
         })
     };
 
-    return Agent;
+    return Agente;
 }
