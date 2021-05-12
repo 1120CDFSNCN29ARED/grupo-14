@@ -59,7 +59,7 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     let config = {
-        tablename: "propiedades",
+        tableName: "propiedades",
         timestamps: false
     };
 
