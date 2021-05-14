@@ -1,54 +1,30 @@
 const { validationResult } = require('express-validator');
-const User = require('../database/models/User');
+const db = require('../database/models');
 const bcrypt = require('bcryptjs');
 const e = require('express');
 
 const controller = {
-    register: (req, res) => {
+    add: function (req, res) {
         return res.render('register');
     },
 
-    processRegister: (req, res) => {
-        const resultValidation = validationResult(req);
-
-        
-
-        if (resultValidation.errors.length > 0){
-            return res.render('register', {
-                errors: resultValidation.mapped(),
-                oldData: req.body
-            });
-        }
-
-        let userInDB = User.findByField('email', req.body.email);
-        //agregar que la pass tenga minimo 8 caracteres
-        if (userInDB) {
-            return res.render('register',{
-                errors: {
-                    email: {
-                        msg: 'este email ya esta registardo'
-                    }
-                },
-                oldData: req.body
-            });
-        }
-
-        let userToCreate = {
-            ...req.body,
-            password: bcrypt.hashSync(req.body.password, 10),
-            avatar: req.file.filename
-        }
-        let userCreated = User.create(userToCreate);
-        return res.redirect('/user/login');
+    create: function (req, res) {
+        db.User.create({
+            userId: req.body.userId,
+            nombre: req.body.name,
+            email: req.body.email,
+            contrasena: bcrypt.hashSync(req.body.password, 10),
+            imagen: req.file.filename
+        });
+        res.redirect('/user/login');
     },
 
-    login: (req,res) => {
-        
+    login: function(req,res) {
         return res.render('login');
     },
 
     loginProcess: (req, res) => {
-        let userToLogin = User.findByField('email', req.body.email);
+        let userToLogin = db.User.findByField('email', req.body.email);
         
         
         if(userToLogin){
