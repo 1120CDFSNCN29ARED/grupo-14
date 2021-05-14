@@ -3,6 +3,8 @@
 
 <head>
     <%- include("./partials/head") %>
+    <script src="/js/loginValidation.js"></script>
+    <script src="/js/validator.min.js"></script>
 </head>
 
 <body>
@@ -15,13 +17,7 @@
         <h3 class="login-title">Inicia sesión con tu cuenta</h3>
 
     </div>
-    <div class="error-box">
-        <ul class="error">
-            <li class="error-texto">
-                Tenés que completar el nombre de usuario
-            </li>
-        </ul>
-    </div>
+    
     <div class="division">
         <form action="login" method="POST">
             <div class="form-background">
@@ -42,11 +38,16 @@
                 <label class="confirmacion" for="recUsu">Quiero recordar mis datos</label>
             </div>
             <div class="input-button">
-                <input class="login-button" type="submit" value="Enviar">
+                <input class="login-button" type="submit" value="Enviar" id = "submit">
             </div>
         </div>
         </form>
-        
+        <div class="" id = "error">
+            <ul class="error">
+                <li class="error-texto">
+                </li>
+            </ul>
+        </div>
     </div>
     <footer>
         <%- include("./partials/footer") %>

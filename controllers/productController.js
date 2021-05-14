@@ -68,7 +68,7 @@ const controller = {
         // Do the magic
         let productId = req.params.id;
         Propiedad
-        .destroy({where: {id: productId}, force: true}) // force: true es para asegurar que se ejecute la acción
+        .destroy({where: {id: productId}, force: true}) 
         .then(()=>{
             return res.redirect('/')})
         .catch(error => res.send(error)) 

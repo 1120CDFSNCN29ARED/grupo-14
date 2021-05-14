@@ -3,6 +3,8 @@
 
 <head>
     <%- include("./partials/head") %>
+    <script src="/js/propValidation.js"></script>
+    <script src="/js/validator.min.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
         
             <div class="div-box">
                 <label class="labell" for="desc">Descripción del producto</label>
-                <textarea class="inputt" name="descripcion" rows="10" cols="40"></textarea>
+                <textarea class="inputt" id ="descripcion" name="descripcion" rows="10" cols="40"></textarea>
             </div>
         
             <div class="div-box">
@@ -93,9 +95,10 @@
             </div>
         
             <div class="div-button">
-                <button class="buttonn" type="submit">CREAR</button>
+                <button class="buttonn" id ="submit"type="submit">CREAR</button>
             </div>
-        
+            <div class="alert alert-danger" role="alert" id = "error">
+            </div>
         </div>
 
     </form>

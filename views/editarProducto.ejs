@@ -23,7 +23,7 @@
 
             <div class="div-box">
                 <label class="labell" for="desc">Descripción del producto</label>
-                <textarea class="inputt" name="descripcion" rows="10" cols="40"><%=product.descripcion%></textarea>
+                <textarea class="inputt" id="descripcion" name="descripcion" rows="10" cols="40"><%=product.descripcion%></textarea>
             </div>
 
             <div class="div-box">
@@ -95,7 +95,8 @@
             <div class="div-button">
                 <button class="buttonn" type="submit">EDITAR</button>
             </div>
-
+            <div class="alert alert-danger" role="alert" id = "error">
+            </div>
         </div>
 
     </form>
