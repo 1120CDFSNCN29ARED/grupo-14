@@ -9,7 +9,7 @@ const {Op} = require('sequelize');
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
+//agregar ruta y controlador para crear la reserva.
 const controller = {
 
     producto: (req, res) => { //todos los productos
