@@ -7,7 +7,19 @@ const controller = {
     add: function (req, res) {
         return res.render('register');
     },
-
+    passEmails: function(req,res){
+        const users = db.User.findAll().then(users => {
+            let respuesta = {
+                meta: {
+                    status: 200,
+                    total: users.length,
+                    url: '/user/api'
+                },
+                data: users
+            }
+            res.json(respuesta);
+        });
+    },
     create: function (req, res) {
         let userInDB = db.User.findOne({ where: { email: req.body.email}});
         //agregar que la pass tenga minimo 8 caracteres

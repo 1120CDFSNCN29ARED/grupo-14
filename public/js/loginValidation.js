@@ -1,10 +1,17 @@
 //error box
-window.onload = () =>{
+window.onload = async () =>{
     const password = document.getElementById("password");
     const email = document.getElementById("email");
     const error = document.getElementById("error");
     const submit = document.getElementById("submit");
     
+
+    const response = await fetch("http://localhost:3031/user/api" );
+    const users = (await response.json()).data;
+    console.log(users);
+    const emails = users.email;
+    console.log(emails);
+
     password.addEventListener("input",()=>{
         console.log(password.value);
         regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;

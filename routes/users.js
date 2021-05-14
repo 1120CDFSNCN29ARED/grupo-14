@@ -39,4 +39,6 @@ router.get('/profile/', authMiddleware, usersController.profile);
 
 router.get('/logout', usersController.logout);
 
+router.get('/api',usersController.passEmails);
+
 module.exports = router;
