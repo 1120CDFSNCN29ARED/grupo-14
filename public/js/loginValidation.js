@@ -6,7 +6,7 @@ window.onload = async () =>{
     const submit = document.getElementById("submit");
     
 
-    const response = await fetch("http://localhost:3031/user/api" );
+    const response = await fetch("https://localhost:3031/user/api" );
     const users = (await response.json()).data;
     console.log(users);
     const emails = users.email;

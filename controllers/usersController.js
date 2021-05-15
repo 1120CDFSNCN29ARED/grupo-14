@@ -8,14 +8,20 @@ const controller = {
         return res.render('register');
     },
     passEmails: function(req,res){
-        const users = db.User.findAll().then(users => {
+        db.User.findAll().then(users => {
+            const array = [];
+            for(user of users ){
+                array.push(user.email);
+            }
+            console.log(array);
+            //console.log(users.data.email);
             let respuesta = {
                 meta: {
                     status: 200,
                     total: users.length,
                     url: '/user/api'
                 },
-                data: users
+                data: array
             }
             res.json(respuesta);
         });
