@@ -1,8 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 var multer = require('multer');
-const {Agent, Propiedad,Reserva,User} = require('../database/models');
+const db = require('../database/models');
 const {Op} = require('sequelize');
+//const Agente = require('../database/models/Agente');
 //const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -14,16 +15,17 @@ const controller = {
 
     producto: (req, res) => { //todos los productos
         //console.log(products);
-        Propiedad.findAll().then((propiedades)=>{
+        db.Propiedad.findAll().then((propiedades)=>{
             res.render("producto", { products: propiedades  });
         });
     },
 
     detalle: (req, res) => { //detalle de UN producto
         const id = req.params.id;
-        Propiedad.findByPk(req.params.id,{
-            include:["Agent"],
+        db.Propiedad.findByPk(req.params.id,{
+            include:["Agente"],
         }).then((Propiedad)=>{
+            //console.log(Propiedad.propiedadId);
             res.render("detalle-producto", {product :Propiedad , toThousand});
         });
     },
@@ -38,26 +40,43 @@ const controller = {
         // Do the magic
         //agregar mismas validaciones que create
         const id = req.params.id;
-        Propiedad.findByPk(req.params.id,{
-            include:["Agent"],
+        db.Propiedad.findByPk(req.params.id,{
+            include:["Agente"],
         }).then((Propiedad)=>{
             res.render("editarProducto", {product : Propiedad, toThousand});
         });
     },
 
-    store: (req, res) => {
-        Propiedad.findAll()
-        Propiedad.create(req.body).then((productoNuevo)=>{
+    store: async(req, res) => {
+        const agentChoosen = await getRandomAgent();
+        //console.log("prueba del req.file" + req.file.filename);
+        const urlImagen = `products/${req.file.filename}`
+        db.Propiedad.create({
+            reservado : false,
+            agenteId : agentChoosen.agenteId,
+            image : urlImagen,
+            ...req.body
+        }).then((productoNuevo)=>{
             res.redirect(`/producto/${productoNuevo.propiedadId}`);
         });
     },
 
     update: (req, res) => {
         // Do the magic
-
-        Propiedad.update(req.body, {
+        let urlImagen;
+        try{
+            urlImagen = `products/${req.file.filename}`}
+        catch (error){
+            db.Propiedad.findByPk(req.params.id).then((propiedad)=>{
+                urlImagen = propiedad.image;
+            })
+        }
+        db.Propiedad.update({
+            image :  urlImagen,
+            ...req.body
+        }, {
             where: {
-                id: req.params.id,
+                propiedadId: req.params.id,
             },
         }).then(() => {
             res.redirect(`/producto/${req.params.id}`);
@@ -67,8 +86,8 @@ const controller = {
     destroy: (req, res) => {
         // Do the magic
         let productId = req.params.id;
-        Propiedad
-        .destroy({where: {id: productId}, force: true}) 
+        db.Propiedad
+        .destroy({where: {propiedadId: productId}, force: true}) 
         .then(()=>{
             return res.redirect('/')})
         .catch(error => res.send(error)) 
@@ -79,5 +98,16 @@ const controller = {
 
 
 
+function between(min, max) {  
+  return Math.floor(
+    Math.random() * (max - min) + min
+  )
+}
+async function getRandomAgent(){
+    const size = await db.Agente.count();
+    const agentes = await db.Agente.findAll();
+    const randomNumber = between(0,size-1);
+    return agentes[randomNumber];
+}
 
 module.exports = controller;

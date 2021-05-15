@@ -55,6 +55,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         precioDeReserva: {
             type: dataTypes.INTEGER
+        },
+        image:{
+            type: dataTypes.STRING
         }
     };
 
@@ -74,7 +77,7 @@ Propiedad.associate = function (models) {
 
 Propiedad.associate = function (models) {
     Propiedad.hasMany(models.Agente, {
-        as: "agente",
+        as: "Agente",
         foreignKey: "agenteId"
     })
 };

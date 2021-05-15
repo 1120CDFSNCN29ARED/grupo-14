@@ -13,8 +13,6 @@ const controller = {
             for(user of users ){
                 array.push(user.email);
             }
-            console.log(array);
-            //console.log(users.data.email);
             let respuesta = {
                 meta: {
                     status: 200,
