@@ -6,11 +6,10 @@ window.onload = async () =>{
     const submit = document.getElementById("submit");
     
 
-    const response = await fetch("https://localhost:3031/user/api" );
-    const users = (await response.json()).data;
-    console.log(users);
-    const emails = users.email;
+    const response = await fetch("http://localhost:3001/user/api" );
+    const  emails = (await response.json()).data;
     console.log(emails);
+
 
     password.addEventListener("input",()=>{
         console.log(password.value);
@@ -23,7 +22,11 @@ window.onload = async () =>{
     });
     email.addEventListener("input",()=>{
         if(validator.contains(email.value,"@") && validator.contains(email.value,".com")){
-            sinError("el email es valido");
+            if(!emails.includes(email.value)){
+                tieneError("El email no existe en nuestra DB");
+            }else{
+                sinError("El email es valido");
+            }
         }else{
             tieneError("El email debe ser un email valido");
         }
