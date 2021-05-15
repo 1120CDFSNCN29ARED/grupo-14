@@ -27,6 +27,19 @@ const controller = {
         });
     },
     create: function (req, res) {
+        let userInDB = db.User.findOne({ where: { email: req.body.email}});
+        //agregar que la pass tenga minimo 8 caracteres
+        if (userInDB) {
+            return res.render('register', {
+                errors: {
+                    email: {
+                        msg: 'este email ya esta registardo'
+                    }
+                },
+                oldData: req.body
+            });
+        }
+        
         db.User.create({
             userId: req.body.userId,
             nombre: req.body.name,
