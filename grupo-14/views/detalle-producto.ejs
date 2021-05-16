@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head") %>
+</head>
+
+<body>
+    <header class="page-header">
+        <%- include("./partials/header") %>
+    </header>
+
+    <h1 class="product-title">Detalle de la propiedad</h1>
+    <div class="product-container">
+
+        <img src="/img/<%= product.image %>" alt="" class="product-img">
+
+        <div class="principal-desc">
+            <h3 class="product-price">
+                <%=product.precio%>
+            </h3>
+            <h3 class="product-direcc">
+                <%=product.direccion%>
+            </h3>
+
+        </div>
+        <div class="product-desc">
+            <h3>Departamento ·
+                <% let superficieTotal = Number(product.superficieCubierta) + Number(product.superficieDescubierta) %>
+                    <%= superficieTotal %>m² ·
+                        <%= product.ambientes%> Ambientes ·
+                            <%= product.cocheras%> Cocheras
+                            localidad: <%=product.barrio%> 
+                        </h3>
+
+        </div>
+        <div class="icon-desc">
+            <h4><i class="fas fa-ruler-combined"><%= superficieTotal%>m2</i>
+                <i class="fas fa-door-open"> <%= product.ambientes%> ambientes</i>
+                <i class="fas fa-toilet"> <%= product.banios%> baño</i>
+                <i class="fas fa-car"> <%= product.cocheras%> cochera</i>
+                <i class="fas fa-bed"> <%= product.dormitorios%> dormitorios</i>
+                <i class="fas fa-calendar-week"> <%= product.antiguedad%> antiguedad</i>
+
+            </h4>
+
+        </div>
+
+    </div>
+
+    <div class="edit">
+        <a href="/producto/<%=product.propiedadId%>/edit/"><button class="btn editar">Editar</button></a>
+        <form action="/producto/<%= product.propiedadId %>?_method=DELETE" method="POST" style="display: inline-flex">
+            <button class="btn borrar">Borrar</button>
+        </form>
+    </div>
+
+    <h3 class="form-title">¿Querés recibir más información sobre la propiedad?</h3>
+    <!-- en realidad, tiene que haber un json diferente para los leads, pero supongamos que esta bien, porque ya es innecesario tanto-->
+    <form action="/register" method="POST">
+        <div class="form-background">
+            <div class="input-box">
+                <input class="input" type="text" name="name" id="user-name" placeholder="Nombre">
+            </div>
+
+            <div class="input-box">
+                <input class="input" type="text" name="lastname" id="user-lastname" placeholder="Apellido">
+            </div>
+
+            <div class="input-box">
+                <input class="input" type="email" name="email" id="user-email" placeholder="Correo Electrónico">
+            </div>
+
+            <div class="input-button">
+                <button class="register-button" type="submit">Contactar a un agente</button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+</body>
+
+</html>
