@@ -27,7 +27,7 @@ const controller = {
     create: function (req, res) {
         let userInDB = db.User.findOne({ where: { email: req.body.email}});
         //agregar que la pass tenga minimo 8 caracteres
-        if (userInDB) {
+        if (userInDB.email == req.body.email) {
             return res.render('register', {
                 errors: {
                     email: {

@@ -42,8 +42,6 @@ router.get('/register', function(req, res) {
     res.render('register', { title: 'Express' })
 });
 
-router.post('/agente',uploadFile.single('agente-img'), validations, mainController.createAgent);
-router.get('/agente',guestMiddleware, mainController.agente);
 
 router.get('/loginAgente', guestMiddleware , mainController.login);
 

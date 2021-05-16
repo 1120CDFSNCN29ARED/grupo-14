@@ -3,6 +3,8 @@
 
 <head>
     <%- include("./partials/head") %>
+    <script src="/js/registerValidation.js"></script>
+    <script src="/js/validator.min.js"></script>
 </head>
 
 <body>
@@ -12,10 +14,10 @@
 
     <h2>REGISTRO DE AGENTE</h2>
     <p>Complete los siguientes datos:</p>
-    <form action="/agente" method="POST">
+    <form action="/agente/register" method="POST" enctype="multipart/form-data" id = "form">
         <div class="form-background">
             <div class="input-box">
-                <input class="input" type="text" name="name" id="user-name" placeholder="Nombre" value = <%= locals.oldData ? oldData.name : null %>>
+                <input class="input" type="text" name="nombre" id="user-name" placeholder="Nombre" value = <%= locals.oldData ? oldData.name : null %>>
             </div>
             <% if (locals.errors && errors.name) { %>
                 <div class="text-danger">
@@ -44,7 +46,7 @@
             </div>
             <div class="input-box">
                 <label for="agente-img" class="label-agente">Ingrese su foto para registrarse como agente</label>
-                <input type="file" name="agente-img" id="agente-img" value = <%= locals.oldData ? oldData.agente-img : null %>>
+                <input type="file" name="imagen" id="agente-img" value = <%= locals.oldData ? oldData.agente-img : null %>>
             </div>
             <% if (locals.errors && errors.agente-img) { %>
                 <div class="text-danger">
@@ -79,7 +81,7 @@
                 <label class="label" for="news">Quiero recibir emails con noticias, productos y ofertas</label>
             </div>
             <div class="input-button">
-                <button class="register-button" type="submit">REGISTRARSE</button>
+                <button class="register-button" type="submit" id = "submit-button">REGISTRARSE</button>
             </div>
         </div>
 
