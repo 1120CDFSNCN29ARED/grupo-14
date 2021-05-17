@@ -40,10 +40,6 @@ const controller = {
         
         db.Agente.findOne({ where: { email: emailcreado } }).then((agenteInDB)=>{
         //agregar que la pass tenga minimo 8 caracteres
-        console.log(agenteInDB.email);
-        console.log(req.body.email);
-        
-        
         if (agenteInDB) {
             console.log("deberia volver");
             return res.render('agente', {

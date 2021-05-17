@@ -35,19 +35,19 @@ const controller = {
             });
         };
         
-        let userInDB = db.User.findOne({ where: { email: req.body.email}});
-        //agregar que la pass tenga minimo 8 caracteres
-        if (userInDB.email == req.body.email) {
-            return res.render('register', {
+        db.User.findOne({ where: { email: emailcreado } }).then((userInDB)=>{
+        //agregar que la pass tenga minimo 8 caracterer
+        if (userInDB) {
+            console.log("deberia volver");
+            return res.render('agente', {
                 errors: {
-                    email: {
-                        msg: 'este email ya esta registardo'
-                    }
+                    email: "email ya existe"
                 },
                 oldData: req.body
             });
-        }
-        
+            }
+        })
+        .catch(() => {
         db.User.create({
             userId: req.body.userId,
             nombre: req.body.name,
@@ -55,7 +55,9 @@ const controller = {
             contrasena: bcrypt.hashSync(req.body.password, 10),
             imagen: req.file.filename
         });
-        res.redirect('/user/login');
+        console.log(req.body.password);
+        return res.redirect('/');
+        });
     },
 
     login: function(req,res) {
