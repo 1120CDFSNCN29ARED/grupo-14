@@ -31,9 +31,9 @@ router.get('/register', guestMiddleware, agentsController.add);
 
 router.post('/register', uploadFile.single('imagen'), validations, agentsController.create);
 
-router.get('/login', guestMiddleware, agentsController.login);
+router.get('/loginAgente', guestMiddleware, agentsController.login);
 
-router.post('/login', agentsController.loginProcess);
+router.post('/loginAgente', agentsController.loginProcess);
 
 router.get('/profile/', authMiddleware, agentsController.profile);
 

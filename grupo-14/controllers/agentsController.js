@@ -29,8 +29,7 @@ const controller = {
         let agenteInDB = db.Agente.findOne({ where: { email: req.body.email } });
         //agregar que la pass tenga minimo 8 caracteres
         if (agenteInDB.email == req.body.email) {
-            console.log("algo salio mal");
-            return res.render('register', {
+            return res.render('agente', {
                 errors: {
                     email: {
                         msg: 'este email ya esta registardo'
@@ -44,41 +43,42 @@ const controller = {
             agenteId: req.body.agenteId,
             nombre: req.body.nombre,
             email: req.body.email,
-            contraseña: bcrypt.hashSync(req.body.password, 10),
+            contrasena: bcrypt.hashSync(req.body.password, 10),
             imagen: req.file.filename
         });
+        console.log(req.body.password);
         res.redirect('/');
     },
 
     login: function (req, res) {
-        return res.render('login');
+        return res.render('loginAgente');
     },
 
     loginProcess: (req, res) => {
-        let agenteToLogin = db.Agente.findOne({ where: { email: req.body.email } });
-
+        let agenteToLogin = db.Agente.findOne({ where: { email: req.body.email } }).then((agenteToLogin) => {
+        console.log(agenteToLogin);
 
         if (agenteToLogin) {
-            let isOkThePassword = bcrypt.compareSync(req.body.password, agenteToLogin.password);
+            let isOkThePassword = bcrypt.compareSync(req.body.password, agenteToLogin.contrasena);
             if (isOkThePassword) {
                 return res.send('puedes ingresar')
             }
         }
-        console.log(agentToLogin);
-        if (agentToLogin) {
+        console.log(agenteToLogin);
+        if (agenteToLogin) {
             console.log("hola");
-            req.session.agentLogged = agentToLogin;
+            req.session.agentLogged = agenteToLogin;
             return res.redirect('/agent/profile');
         }
 
 
-        return res.render('login', {
+        return res.render('loginAgente', {
             errors: {
                 email: {
                     msg: 'las credenciales son invalidas'
                 }
             }
-        });
+        });})
     },
 
     profile: (req, res) => {
