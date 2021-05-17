@@ -25,6 +25,16 @@ const controller = {
         });
     },
     create: function (req, res) {
+        const resultValidation = validationResult(req);
+        console.log(Object.keys(resultValidation).length);
+        if (Object.keys(resultValidation).length > 0) {
+            console.log("algo salio mal");
+            return res.render('register', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        };
+        
         let userInDB = db.User.findOne({ where: { email: req.body.email}});
         //agregar que la pass tenga minimo 8 caracteres
         if (userInDB.email == req.body.email) {

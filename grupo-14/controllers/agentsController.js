@@ -25,29 +25,46 @@ const controller = {
         });
     },
     create: function (req, res) {
-        console.log("algo salio mal");
-        let agenteInDB = db.Agente.findOne({ where: { email: req.body.email } });
+        const resultValidation = validationResult(req);
+        console.log(resultValidation.isEmpty());
+        if (!resultValidation.isEmpty()) {
+            console.log("algo salio mal");
+            return res.render('agente', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+
+            });
+        };
+
+        let emailcreado = req.body.email;
+        
+        db.Agente.findOne({ where: { email: emailcreado } }).then((agenteInDB)=>{
         //agregar que la pass tenga minimo 8 caracteres
-        if (agenteInDB.email == req.body.email) {
+        console.log(agenteInDB.email);
+        console.log(req.body.email);
+        
+        
+        if (agenteInDB) {
+            console.log("deberia volver");
             return res.render('agente', {
                 errors: {
-                    email: {
-                        msg: 'este email ya esta registardo'
-                    }
+                    email: "email ya existe"
                 },
                 oldData: req.body
             });
-        }
-
+            }
+        })
+        .catch(() => {
         db.Agente.create({
             agenteId: req.body.agenteId,
-            nombre: req.body.nombre,
+            nombre: req.body.name,
             email: req.body.email,
             contrasena: bcrypt.hashSync(req.body.password, 10),
             imagen: req.file.filename
         });
         console.log(req.body.password);
-        res.redirect('/');
+        return res.redirect('/');
+        });
     },
 
     login: function (req, res) {
