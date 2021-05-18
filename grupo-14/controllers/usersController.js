@@ -26,15 +26,27 @@ const controller = {
     },
     create: function (req, res) {
         const resultValidation = validationResult(req);
-        console.log(Object.keys(resultValidation).length);
-        if (Object.keys(resultValidation).length > 0) {
+        console.log(resultValidation.isEmpty());
+        if (!resultValidation.isEmpty()) {
             console.log("algo salio mal");
-            return res.render('register', {
+            return res.render('agente', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
+
             });
         };
         
+        let emailcreado = req.body.email;
+
+        if (emailcreado.length < 8){
+            return res.render('agente', {
+                errors: {
+                    email: "email ya existe"
+                },
+                oldData: req.body
+            });
+        };
+
         db.User.findOne({ where: { email: emailcreado } }).then((userInDB)=>{
         //agregar que la pass tenga minimo 8 caracterer
         if (userInDB) {
@@ -46,10 +58,10 @@ const controller = {
                 oldData: req.body
             });
             }
-        })
-        .catch(() => {
-        db.User.create({
-            userId: req.body.userId,
+        
+        else {
+        db.Agente.create({
+            agenteId: req.body.agenteId,
             nombre: req.body.name,
             email: req.body.email,
             contrasena: bcrypt.hashSync(req.body.password, 10),
@@ -57,7 +69,8 @@ const controller = {
         });
         console.log(req.body.password);
         return res.redirect('/');
-        });
+        }
+        })
     },
 
     login: function(req,res) {

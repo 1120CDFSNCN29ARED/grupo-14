@@ -25,6 +25,8 @@ const controller = {
         });
     },
     create: function (req, res) {
+        let emailcreado = req.body.email;
+        let contaseñacreada = req.body.password;
         const resultValidation = validationResult(req);
         console.log(resultValidation.isEmpty());
         if (!resultValidation.isEmpty()) {
@@ -36,10 +38,21 @@ const controller = {
             });
         };
 
-        let emailcreado = req.body.email;
-        
+        console.log(contaseñacreada.length);
+
+        if (contaseñacreada.length < 8) {
+            console.log("deberia caerse");
+            return res.render('agente', {
+                errors: {
+                    email: "contraseña corta"
+                },
+                oldData: req.body
+            });
+        };
+
         db.Agente.findOne({ where: { email: emailcreado } }).then((agenteInDB)=>{
         //agregar que la pass tenga minimo 8 caracteres
+        console.log(agenteInDB);
         if (agenteInDB) {
             console.log("deberia volver");
             return res.render('agente', {
@@ -49,18 +62,18 @@ const controller = {
                 oldData: req.body
             });
             }
+        else {
+            db.Agente.create({
+                agenteId: req.body.agenteId,
+                nombre: req.body.name,
+                email: req.body.email,
+                contrasena: bcrypt.hashSync(req.body.password, 10),
+                imagen: req.file.filename
+            });
+            console.log(req.body.password);
+            return res.redirect('/');
+        }
         })
-        .catch(() => {
-        db.Agente.create({
-            agenteId: req.body.agenteId,
-            nombre: req.body.name,
-            email: req.body.email,
-            contrasena: bcrypt.hashSync(req.body.password, 10),
-            imagen: req.file.filename
-        });
-        console.log(req.body.password);
-        return res.redirect('/');
-        });
     },
 
     login: function (req, res) {
