@@ -27,13 +27,15 @@ const controller = {
     },
 
     detalle: (req, res) => { //detalle de UN producto
+        console.log("entraste")
         const id = req.params.id;
-        db.Propiedad.findByPk(req.params.id,{
-            include:["Agente"],
-        }).then((Propiedad)=>{
-            //console.log(Propiedad.propiedadId);
+        db.Propiedad.findByPk(id).then((Propiedad)=>{
+            console.log(Propiedad.propiedadId);
             res.render("detalle-producto", {product :Propiedad , toThousand});
-        });
+        })
+        .catch(() => {
+            console.log("Nuevo error debloqueado");
+        })
     },
 
     create: (req, res) => {
@@ -64,7 +66,10 @@ const controller = {
             ...req.body
         }).then((productoNuevo)=>{
             res.redirect(`/producto/${productoNuevo.propiedadId}`);
-        });
+        })
+        .catch(() => {
+            console.log("error nuevo");
+        })
     },
 
     update: (req, res) => {
