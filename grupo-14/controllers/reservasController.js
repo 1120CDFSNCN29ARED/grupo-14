@@ -27,20 +27,20 @@ const controller = {
             });
 
            const agente = propiedad.Agente;
-           console.log(agente);
+           console.log(propiedad);
             
             
             res.render('reservas', {reserva : reserva, propiedad: propiedad, agente:agente});
         }else{
             res.send('esta reservado');
-        }
+       }
     },
 
     aceptar : async(req,res) =>{
         //cambiarle el estado a la reserva BROTHER
     },
 
-    show: async(req,res)=>{
+    show: async(req,res)=>{//mostrar vista
 
     }
 }

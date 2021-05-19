@@ -3,6 +3,7 @@ const path = require('path');
 var multer = require('multer');
 const db = require('../database/models');
 const {Op} = require('sequelize');
+const { reserva } = require('./reservasController');
 //const Agente = require('../database/models/Agente');
 //const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -17,7 +18,7 @@ const controller = {
         //console.log(products);
         db.Propiedad.findAll({
             where:{
-                reservado : false,
+                //reservado : false,
             },
         }
         ).then((propiedades)=>{
@@ -97,8 +98,6 @@ const controller = {
             return res.redirect('/')})
         .catch(error => res.send(error)) 
     }
-
-
 };
 
 

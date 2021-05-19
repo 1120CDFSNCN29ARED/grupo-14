@@ -15,7 +15,7 @@
     <div class="container">
         <%for(let i = 0 ; i<products.length; i++){%>
             <div class="propiedad">
-                <img src="img/products/<%=products[i].imagen %>" alt="">
+                <img src="img/products/<%=products[i].image %>" alt="">
                 <h4>
                     <%=products[i].precio%>
                 </h4>
@@ -24,7 +24,7 @@
                         <%= products[i].antiguedad%> <br> Superficie total:
                             <%=products[i].superficieTotal%>
                 </p>
-                <a href="/producto/<%=products[i].id%>">Leer más</a> <br>
+                <a href="/producto/<%= products[i].propiedadId %>">Leer más</a> <br>
                 <div>
                     <button class="btn-propiedad">Contactar un agente</button>
                 </div>
