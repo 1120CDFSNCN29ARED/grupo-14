@@ -44,7 +44,7 @@ const controller = {
             console.log("deberia caerse");
             return res.render('agente', {
                 errors: {
-                    email: "contraseña corta"
+                    password: "contraseña corta"
                 },
                 oldData: req.body
             });
@@ -81,30 +81,35 @@ const controller = {
     },
 
     loginProcess: (req, res) => {
-        let agenteToLogin = db.Agente.findOne({ where: { email: req.body.email } }).then((agenteToLogin) => {
-        console.log(agenteToLogin);
-
-        if (agenteToLogin) {
+        let emailIngresado = req.body.email;
+        db.Agente.findOne({ where: { email: emailIngresado } }).then((agenteToLogin) => {
+            console.log(agenteToLogin)
+        
             let isOkThePassword = bcrypt.compareSync(req.body.password, agenteToLogin.contrasena);
-            if (isOkThePassword) {
-                return res.send('puedes ingresar')
+            console.log(isOkThePassword);
+            if (isOkThePassword){
+                console.log("hola");
+                req.session.userLogged = agenteToLogin;
+                return res.redirect('/user/profile');
             }
-        }
-        console.log(agenteToLogin);
-        if (agenteToLogin) {
-            console.log("hola");
-            req.session.agentLogged = agenteToLogin;
-            return res.redirect('/agent/profile');
-        }
-
-
-        return res.render('loginAgente', {
+            else{
+                console.log("les dire a los niños que no hay pagina");
+                return res.render('loginAgente',{
+                errors: {
+                    email: {
+                        msg: 'las credenciales son invalidas'
+                    }
+                }
+            });};
+        })
+        .catch(() => {
+            
+            return res.render('loginAgente', {
             errors: {
                 email: {
                     msg: 'las credenciales son invalidas'
                 }
-            }
-        });})
+            }})})
     },
 
     profile: (req, res) => {

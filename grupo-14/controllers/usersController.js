@@ -25,6 +25,8 @@ const controller = {
         });
     },
     create: function (req, res) {
+        let emailcreado = req.body.email;
+        let contaseñacreada = req.body.password;
         const resultValidation = validationResult(req);
         console.log(resultValidation.isEmpty());
         if (!resultValidation.isEmpty()) {
@@ -36,12 +38,11 @@ const controller = {
             });
         };
         
-        let emailcreado = req.body.email;
-
-        if (emailcreado.length < 8){
+        if (contaseñacreada.length < 8) {
+            console.log("deberia caerse");
             return res.render('agente', {
                 errors: {
-                    email: "email ya existe"
+                    password: "contraseña corta"
                 },
                 oldData: req.body
             });
@@ -60,8 +61,8 @@ const controller = {
             }
         
         else {
-        db.Agente.create({
-            agenteId: req.body.agenteId,
+        db.User.create({
+            userId: req.body.userId,
             nombre: req.body.name,
             email: req.body.email,
             contrasena: bcrypt.hashSync(req.body.password, 10),
@@ -78,30 +79,37 @@ const controller = {
     },
 
     loginProcess: (req, res) => {
-        let userToLogin = db.User.findByField('email', req.body.email);
+        let emailIngresado = req.body.email;
+        console.log(emailIngresado);
+        console.log(req.body.email);
+        db.User.findOne({ where: { email: emailIngresado } }).then((userToLogin) => {
+            console.log(userToLogin)
         
-        
-        if(userToLogin){
-            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+            let isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.contrasena);
+            console.log(isOkThePassword);
             if (isOkThePassword){
-                return res.send('puedes ingresar')
+                console.log("hola");
+                req.session.userLogged = userToLogin;
+                return res.redirect('/user/profile');
             }
-        }
-        console.log(userToLogin);
-        if (userToLogin) {
-            console.log("hola");
-            req.session.userLogged = userToLogin;
-            return res.redirect('/user/profile');
-            }
-        
-        
-        return res.render('login',{
+            else{
+                console.log("les dire a los niños que no hay pagina");
+                return res.render('login',{
+                errors: {
+                    email: {
+                        msg: 'las credenciales son invalidas'
+                    }
+                }
+            });};
+        })
+        .catch(() => {
+            
+            return res.render('login', {
             errors: {
                 email: {
                     msg: 'las credenciales son invalidas'
                 }
-            }
-        });
+            }})})
     },
 
     profile: (req, res) => {
