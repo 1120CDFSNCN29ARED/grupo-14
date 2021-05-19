@@ -53,6 +53,11 @@
         <form action="/producto/<%= product.propiedadId %>?_method=DELETE" method="POST" style="display: inline-flex">
             <button class="btn borrar">Borrar</button>
         </form>
+        <% if(!product.reservado){ %>
+        <form action="/producto/reservar/<%= product.propiedadId %>" method="POST" style="display: inline-flex">
+        <button class = "btn editar">Reservar </button>
+        </form>
+        <% } %>
     </div>
 
     <h3 class="form-title">¿Querés recibir más información sobre la propiedad?</h3>

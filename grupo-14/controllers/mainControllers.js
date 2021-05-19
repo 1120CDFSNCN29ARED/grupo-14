@@ -78,6 +78,7 @@ const controller = {
         db.Propiedad.findAll({
             where:{
                 [Op.and]:{
+                    reservado:false,
                     barrio: {[Op.like]:`%${barrio}%`},
                     precio:{[Op.between]:[precioMin,precioMax]},
                     direccion:{[Op.like]:`%${ubicacion}%`}

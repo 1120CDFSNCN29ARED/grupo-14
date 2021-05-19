@@ -69,16 +69,14 @@ module.exports = (sequelize, dataTypes) => {
 const Propiedad = sequelize.define(alias,cols,config);
 
 Propiedad.associate = function (models) {
-    Propiedad.hasMany(models.Reserva, {
-        as: "reserva",
-        foreignKey: "propiedadId"
-    })
-};
-
-Propiedad.associate = function (models) {
-    Propiedad.hasMany(models.Agente, {
+    Propiedad.belongsTo(models.Agente, {
         as: "Agente",
         foreignKey: "agenteId"
+    })
+
+    Propiedad.hasMany(models.Reserva, {
+        as: "reserva",
+        foreignKey: "propiedadId",
     })
 };
 

@@ -32,9 +32,6 @@ module.exports = (sequelize, dataTypes) => {
             as: "user",
             foreignKey: "userId"
         })
-    };
-
-    Reserva.associate = function (models) {
         Reserva.belongsTo(models.Propiedad, {
             as: "propiedad",
             foreignKey: "propiedadId"

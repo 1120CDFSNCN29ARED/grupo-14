@@ -4,6 +4,8 @@ var router = express.Router();
 var multer = require('multer');
 
 const productsController = require('../controllers/productController');
+const reservasController = require('../controllers/reservasController');
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -37,5 +39,10 @@ router.put('/:id/edit', upload.single("imagen"), productsController.update);
 
 console.log('hola');
 router.delete('/:id', productsController.destroy);
+
+
+router.get('/reserva/:id/',reservasController.show);
+router.post('/reservar/:id/',reservasController.reserva);
+router.post('/aceptar/:id/',reservasController.aceptar);
 
 module.exports = router;

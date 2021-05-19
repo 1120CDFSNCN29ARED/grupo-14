@@ -15,7 +15,12 @@ const controller = {
 
     producto: (req, res) => { //todos los productos
         //console.log(products);
-        db.Propiedad.findAll().then((propiedades)=>{
+        db.Propiedad.findAll({
+            where:{
+                reservado : false,
+            },
+        }
+        ).then((propiedades)=>{
             res.render("producto", { products: propiedades  });
         });
     },
