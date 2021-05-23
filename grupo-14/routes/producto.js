@@ -41,7 +41,7 @@ console.log('hola');
 router.delete('/:id', productsController.destroy);
 
 
-router.get('/reserva/:id/',reservasController.show);
+router.get('/reservas/:id/',reservasController.show);
 router.post('/reservar/:id/',reservasController.reserva);
 router.post('/aceptar/:id/',reservasController.aceptar);
 

@@ -37,11 +37,87 @@ const controller = {
     },
 
     aceptar : async(req,res) =>{
-        //cambiarle el estado a la reserva BROTHER
+        const id = req.params.id;
+        const reserva = await db.Reserva.findByPk(id);
+        if (reserva == null){
+            res.send('no existe la reserva');
+        }else{
+            await reserva.update({
+                status : 'aprobado',
+            });
+        }
+        res.redirect(`/producto/reservar/${id}/`);
+    },
+
+//otro controlador para dar de baja la reserva
+    rechazar : async(req,res) =>{
+        const id = req.params.id;
+        const reserva = await db.Reserva.findByPk(id,{
+            include : [{
+                model : db.Propiedad,
+                as : 'Propiedad',
+            }]
+        });
+        await reserva.update({
+            status : 'rechazado',
+        });
+        await reserva.Propiedad.update({
+            reservado : false
+        });
+        res.redirect(`/producto/reservar/${id}/`);
+    },
+
+
+
+//otro controlador para mostrar el historico de las reservas
+    showHistorico : async(req,res) =>{
+        const idsPropiedades = [];
+        const idAgente = req.params.id;
+        try {
+            const propiedades = await db.Propiedad.findAll({
+                Where : {
+                    agenteId : idAgente,
+                },
+            });
+        }catch(e){
+            res.send('Error 404');
+        }
+        
+        for(propiedad in propiedades){
+            idsPropiedades.add(propiedades.propiedadId);
+        }
+
+        const reservas = await db.Reserva.findAll({
+            Where :{
+                propiedadId : {
+                    [OP.in] : idsPropiedades
+                }
+            },
+        });
+        //res.render(vista de reservas, reservas : reservas )
     },
 
     show: async(req,res)=>{//mostrar vista
+        const idsPropiedades = [];
+        const idAgente = req.params.id;
+        const propiedades = await db.Propiedad.findAll({
+            Where : {
+                agenteId : idAgente,
+                reservado : true,
+            },
+        });
+        for(propiedad in propiedades){
+            idsPropiedades.add(propiedades.propiedadId);
+        }
 
+        const reservas = await db.Reserva.findAll({
+            Where :{
+                propiedadId : {
+                    [OP.in] : idsPropiedades
+                }
+            },
+        });
+        //res.render(vista de reservas, reservas : reservas);
     }
 }
 

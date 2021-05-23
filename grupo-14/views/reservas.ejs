@@ -19,7 +19,7 @@
             <h3 class="res-des">Precio de la reserva: <%= reserva.precioDeReserva%> </h3>
         </div>
         <div class="boton-reservas">
-        <form action="/producto/aceptar/<%= product.propiedadId %>" method="POST">
+        <form action="/producto/aceptar/<%= reserva.reservaId %>" method="POST">
             <button class="reservar">Aceptar Reserva</button>
         </div>
     </div>
