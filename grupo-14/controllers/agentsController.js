@@ -113,8 +113,9 @@ const controller = {
     },
 
     profile: (req, res) => {
+        console.log(req.session.userLogged.imagen);
         return res.render('perfil', {
-            agent: req.session.agentLogged
+            agent: req.session.userLogged
         });
     },
 

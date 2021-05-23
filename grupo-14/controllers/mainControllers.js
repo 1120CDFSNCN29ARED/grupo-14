@@ -36,7 +36,9 @@ const controller = {
     index: (req, res) => {
         //console.log(products);
         db.Propiedad.findAll().then((propiedades)=>{
-            res.render("index", { products: propiedades });
+            res.render("index", { 
+            products: propiedades,
+            user: req.session.userLogged  });
         });
     },
 

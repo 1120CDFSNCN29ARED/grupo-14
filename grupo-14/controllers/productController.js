@@ -22,7 +22,9 @@ const controller = {
             },
         }
         ).then((propiedades)=>{
-            res.render("producto", { products: propiedades  });
+            res.render("producto", { 
+                user: req.session.userLogged,
+                products: propiedades  });
         });
     },
 
@@ -31,7 +33,8 @@ const controller = {
         const id = req.params.id;
         db.Propiedad.findByPk(id).then((Propiedad)=>{
             console.log(Propiedad.propiedadId);
-            res.render("detalle-producto", {product :Propiedad , toThousand});
+            res.render("detalle-producto", {product :Propiedad ,
+                user: req.session.userLogged, toThousand});
         })
         .catch(() => {
             console.log("Nuevo error debloqueado");
