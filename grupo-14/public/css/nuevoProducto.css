@@ -64,7 +64,7 @@
         width: 20vw;
     }
     .buttonn:hover {
-        background-color: #59766C;
+        background-color: #007bff; 
         color: #fff;
     }
 }

@@ -86,17 +86,17 @@
 }
 
 .boton button:hover {
-    background-color: #59766C;
+    background-color: #007bff;
     color: #fff;
 }
 
 .login-button:hover {
-    background-color: #59766C;
+    background-color: #007bff;
     color: #fff;
 }
 
 .contacto {
-    background-color: #99d6d0;
+    background-color: #CEDDEF;
     border: 2px solid black;
     position: relative;
 }

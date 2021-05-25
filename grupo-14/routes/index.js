@@ -48,7 +48,9 @@ router.get('/loginAgente', guestMiddleware , mainController.login);
 router.post('/loginAgente', mainController.loginProcessAgente);
 
 
-
+router.get('/reservasAgente', function(req,res) {
+    res.render('reservasAgente', { title: 'Express' })
+});
 
 //router.get('/nuevoProducto', function(req, res) {
 //  res.render('nuevoProducto', { title: 'Express' })
