@@ -13,23 +13,22 @@
 
 
 <body>
-    
     <div class="container">
         <h2 class="title">Propiedades reservadas</h2>
+        <% for(reserva of reservas){ %>
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/img/fachada-edificio.jpg" alt="Card image cap">
+            <img class="card-img-top" src="/img/products/<%= reserva.propiedad.image %>" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Olazabal 3200</h5>
-                <p class="card-text">Departamento de 2 Ambientes en Alquiler en Belgrano</p>
-                <a href="#" class="btn btn-primary">Ir al detalle</a>
+                <h5 class="card-title"><%= reserva.propiedad.direccion %></h5>
+                <p class="card-text"><%= reserva.propiedad.descripcion %></p>
+                <a href="/reservas/<%= reserva.reservaId%>" class="btn btn-primary">Ir al detalle</a>
             </div>
-            
-            <button type="button" class="btn btn-success btn-sm">Aceptar reserva</button>
-            <button type="button" class="btn btn-danger btn-sm">Rechazar reserva</button>
-                
+            <a href = "/reservas/aceptar/<%= reserva.reservaId%>"><button type="button" class="btn btn-success btn-sm">Aceptar reserva</button></a>
+            <a href = "/reservas/rechazar/<%= reserva.reservaId%>"><button type="button" class="btn btn-danger btn-sm">Rechazar reserva</button></a>
         </div>
+        <% } %>
     </div>
-    
+
 
 </body>
 

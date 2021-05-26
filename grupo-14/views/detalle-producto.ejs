@@ -47,18 +47,20 @@
         </div>
 
     </div>
-    <% if(user.agenteId){ %>
-        <div class="edit">
-            <a href="/producto/<%=product.propiedadId%>/edit/"><button class="btn editar">Editar</button></a>
-            <form action="/producto/<%= product.propiedadId %>?_method=DELETE" method="POST" style="display: inline-flex">
-                <button class="btn borrar">Borrar</button>
-            </form>
-            <% if(!product.reservado){ %>
-            <form action="/producto/reservar/<%= product.propiedadId %>" method="POST" style="display: inline-flex">
-            <button class = "btn editar">Reservar </button>
-            </form>
-            <% } %>
-        </div>
+    <% if(user != undefined){ %>
+        <% if(user.agenteId){ %>
+            <div class="edit">
+                <a href="/producto/<%=product.propiedadId%>/edit/"><button class="btn editar">Editar</button></a>
+                <form action="/producto/<%= product.propiedadId %>?_method=DELETE" method="POST" style="display: inline-flex">
+                    <button class="btn borrar">Borrar</button>
+                </form>
+                <% if(!product.reservado){ %>
+                <form action="/reservas/reservar/<%= product.propiedadId %>" method="POST" style="display: inline-flex">
+                <button class = "btn editar">Reservar </button>
+                </form>
+                <% } %>
+            </div>
+        <% } %>
     <% } %>
 
     <h3 class="form-title">¿Querés recibir más información sobre la propiedad?</h3>

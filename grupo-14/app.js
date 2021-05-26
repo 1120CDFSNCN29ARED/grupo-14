@@ -9,6 +9,7 @@ var indexRouter = require('./routes/index');
 var productRouter = require('./routes/producto');
 var userRouter = require('./routes/users');
 var agenteRouter = require('./routes/agente');
+var reservasRouter = require('./routes/reserva');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
@@ -50,6 +51,7 @@ app.use('/', indexRouter);
 app.use('/producto', productRouter);
 app.use('/user', userRouter);
 app.use('/agente', agenteRouter);
+app.use('/reservas', reservasRouter);
 
 
 

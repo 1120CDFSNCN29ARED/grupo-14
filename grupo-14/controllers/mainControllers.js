@@ -33,13 +33,23 @@ const upload = multer({ storage });
 
 const controller = {
 
-    index: (req, res) => {
+    index: async (req, res) => {
         //console.log(products);
-        db.Propiedad.findAll().then((propiedades)=>{
-            res.render("index", { 
-            products: propiedades,
-            user: req.session.userLogged  });
+        let propiedades = await db.Propiedad.findAll({
+            where : {
+                reservado : false,
+                destacado : true
+            }
         });
+
+        let agentes = await db.Agente.findAll();
+        console.log(agentes);
+        //console.log(propiedades);
+        res.render("index", { 
+            products: propiedades,
+            agentes: agentes,
+            user: req.session.userLogged  });
+
     },
 
     agente: (req, res) => {

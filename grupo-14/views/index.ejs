@@ -25,10 +25,9 @@
             <center>
                 <% for(let i=0; i<products.length;i++){
                     if(products[i].destacado==true){ %>
-                        <div class='img2'><img src='img/products/<%=products[i].imagen%>' alt='Agente 1' id='tamanio-imagen'>
+                        <div class='img2'><img src='img/products/<%=products[i].image%>' alt='Agente 1' id='tamanio-imagen'>
                             <p><%= products[i].name %></p>
                         <%}}%>
-                
             </center>
         </div>
     </div>
@@ -74,20 +73,11 @@
     <h1 class="titulos">Agentes inmobiliarios</h1>
 
     <div class='agentes-container'>
-
-        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 1' id='tamanio-imagen'>
-            <p class="agente-nombre">Martin Ljaskowsky <br><i class="fas fa-phone-alt"></i> +541164254656</p>
+        <% for(agente of agentes){ %>
+        <div class='flex-item'><img src='/img/agentes/<%=agente.imagen%>' alt='Agente 1' id='tamanio-imagen'>
+            <p class="agente-nombre"><%= agente.nombre %><br><i class="fas fa-phone-alt"></i> <%= agente.email %></p>
         </div>
-        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 2' id='tamanio-imagen'>
-            <p class="agente-nombre">Matias Rosbaco <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-        </div>
-        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 3' id='tamanio-imagen'>
-            <p class="agente-nombre">Marco Morana <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-        </div>
-        <div class='flex-item'><img src='/img/agente.jpg' alt='Agente 4' id='tamanio-imagen'>
-            <p class="agente-nombre">Gonzales Pardo <br><i class="fas fa-phone-alt"></i> +541164254656</p>
-        </div>
-
+        <%}%>
     </div>
     <div class='contacto'>
         <form action="/home" method="post">
