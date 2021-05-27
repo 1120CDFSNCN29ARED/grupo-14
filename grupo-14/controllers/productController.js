@@ -18,7 +18,7 @@ const controller = {
         //console.log(products);
         db.Propiedad.findAll({
             where:{
-                //reservado : false,
+                reservado : false,
             },
         }
         ).then((propiedades)=>{

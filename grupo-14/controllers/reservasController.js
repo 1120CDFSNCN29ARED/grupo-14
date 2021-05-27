@@ -7,6 +7,7 @@ const {Op} = require('sequelize');
 const controller = {
     reserva : async (req,res) => {
         const id = req.params.id;
+        console.log("estamos en reserva");
         const propiedad = await db.Propiedad.findByPk(req.params.id,{
             include:[{
                 model:db.Agente,
@@ -18,7 +19,7 @@ const controller = {
             propiedadId : propiedad.propiedadId,
             precioDeReserva : propiedad.precio,
             status : "en aprobacion de reserva",
-            customerId : req.session.userId//id del usuario
+            userId : req.session.userLogged.userId//id del usuario
             })
 
             propiedad.update({
@@ -46,7 +47,7 @@ const controller = {
                 status : 'aprobado',
             });
         }
-        res.redirect(`/producto/reservar/${id}/`);
+        res.redirect(`/reservas/${id}/`);
     },
 
 //otro controlador para dar de baja la reserva
@@ -55,16 +56,16 @@ const controller = {
         const reserva = await db.Reserva.findByPk(id,{
             include : [{
                 model : db.Propiedad,
-                as : 'Propiedad',
+                as: 'propiedad',
             }]
         });
         await reserva.update({
             status : 'rechazado',
         });
-        await reserva.Propiedad.update({
+        await reserva.propiedad.update({
             reservado : false
         });
-        res.redirect(`/producto/reservar/${id}/`);
+        res.redirect(`/reservas/${id}/`);
     },
 
     show: async(req,res)=>{//mostrar vista
@@ -73,19 +74,25 @@ const controller = {
         const idAgente = req.session.userLogged.agenteId;
         const propiedades = await db.Propiedad.findAll({
             Where : {
-                agenteId : idAgente,
-                reservado : true,
+                [Op.and]: {
+                reservado: true,
+                agenteId : idAgente
+            }
             },
         });
+        
         for(propiedad in propiedades){
-            idsPropiedades.add(propiedades.propiedadId);
-        }
+            console.log(propiedad);
+            idsPropiedades.push(propiedad.propiedadId);
+        };
+
+        console.log(propiedades);
 
         const reservas = await db.Reserva.findAll({
             Where :{
                 [Op.and] : [
                     {propiedadId : {
-                        [OP.in] : idsPropiedades
+                        [Op.in] : idsPropiedades
                         }
                     },
                         {status:{
@@ -100,23 +107,22 @@ const controller = {
         });
 
 
-        res.render('reservasAgentes', {reservas : reservas});
+        res.render('reservasAgente', {reservas : reservas});
     },
 
     showIndividual: async(req,res)=>{
         console.log(req.session.userLogged);
         if (req.session.userLogged){
-            const reserva = await db.Reserva.findAll({
+            const reserva = await db.Reserva.findOne({
                 where : {
                     [Op.and]: [
-                        {customerId : req.session.userId},
+                        {userId : req.session.userLogged.userId},
                         {status:{
                             [Op.ne] : 'rechazado'}
                         }
                     ]
-                },
-                limit : 1
-            }).catch(res.send('revento todo en mil pedazos'));
+                }
+            });
             const propiedad = await db.Propiedad.findByPk(reserva.propiedadId,{
                 include:[{
                     model:db.Agente,
@@ -131,7 +137,7 @@ const controller = {
     },
     detalleReserva: async(req,res)=>{
         const idReserva = req.params.id;
-        const reserva = db.Reserva.findByPk(idReserva);
+        const reserva = await db.Reserva.findByPk(idReserva);
             const propiedad = await db.Propiedad.findByPk(reserva.propiedadId,{
                 include:[{
                     model:db.Agente,

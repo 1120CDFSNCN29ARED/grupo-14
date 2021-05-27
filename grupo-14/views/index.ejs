@@ -25,7 +25,7 @@
             <center>
                 <% for(let i=0; i<products.length;i++){
                     if(products[i].destacado==true){ %>
-                        <div class='img2'><img src='img/products/<%=products[i].image%>' alt='Agente 1' id='tamanio-imagen'>
+                        <div class='img2'><img src='img/<%=products[i].image%>' alt='Agente 1' id='tamanio-imagen'>
                             <p><%= products[i].name %></p>
                         <%}}%>
             </center>
