@@ -7,6 +7,7 @@ const {Op} = require('sequelize');
 const controller = {
     reserva : async (req,res) => {
         const id = req.params.id;
+        // que el usuario no tenga una reserva activa valida.
         const propiedad = await db.Propiedad.findByPk(req.params.id,{
             include:[{
                 model:db.Agente,
@@ -98,7 +99,7 @@ const controller = {
             }]
         });
 
-
+        
         res.render('reservasAgentes', {reservas : reservas});
     },
 
