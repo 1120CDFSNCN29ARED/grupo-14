@@ -18,9 +18,6 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 var app = express();
 
 
-
-
-
 app.use(session({
     secret: "secret",
     resave: false,

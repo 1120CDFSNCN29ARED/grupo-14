@@ -27,7 +27,8 @@ const authMiddleware = require('../middlewares/authMiddleware');
 router.get('/', mainController.index);
 
 router.get('/contact', function(req, res) {
-    res.render('contact', { title: 'Express' })
+    res.render('contact', { title: 'Express' , user : req.session.userLogged }
+    )
 });
 
 router.get('/perfil', function (req, res) {
@@ -41,12 +42,6 @@ router.get('/login', function(req, res) {
 router.get('/register', function(req, res) {
     res.render('register', { title: 'Express' })
 });
-
-
-router.get('/loginAgente', guestMiddleware , mainController.login);
-
-router.post('/loginAgente', mainController.loginProcessAgente);
-
 
 router.get('/reservasAgente', function(req,res) {
     res.render('reservasAgente', { title: 'Express' })

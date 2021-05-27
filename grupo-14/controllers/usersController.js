@@ -30,7 +30,6 @@ const controller = {
         const resultValidation = validationResult(req);
         console.log(resultValidation.isEmpty());
         if (!resultValidation.isEmpty()) {
-            console.log("algo salio mal");
             return res.render('agente', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
@@ -39,7 +38,6 @@ const controller = {
         };
         
         if (contaseñacreada.length < 8) {
-            console.log("deberia caerse");
             return res.render('agente', {
                 errors: {
                     password: "contraseña corta"
@@ -51,7 +49,6 @@ const controller = {
         db.User.findOne({ where: { email: emailcreado } }).then((userInDB)=>{
         //agregar que la pass tenga minimo 8 caracterer
         if (userInDB) {
-            console.log("deberia volver");
             return res.render('agente', {
                 errors: {
                     email: "email ya existe"
@@ -68,7 +65,6 @@ const controller = {
             contrasena: bcrypt.hashSync(req.body.password, 10),
             imagen: req.file.filename
         });
-        console.log(req.body.password);
         return res.redirect('/');
         }
         })
@@ -80,8 +76,6 @@ const controller = {
 
     loginProcess: (req, res) => {
         let emailIngresado = req.body.email;
-        console.log(emailIngresado);
-        console.log(req.body.email);
         db.User.findOne({ where: { email: emailIngresado } }).then((userToLogin) => {
             console.log(userToLogin)
         

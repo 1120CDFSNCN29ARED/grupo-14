@@ -103,7 +103,8 @@ const controller = {
     },
 
     showIndividual: async(req,res)=>{
-        if(req.session.userId != null){
+        console.log(req.session.userLogged);
+        if (req.session.userLogged){
             const reserva = await db.Reserva.findAll({
                 where : {
                     [Op.and]: [
@@ -114,7 +115,7 @@ const controller = {
                     ]
                 },
                 limit : 1
-            });
+            }).catch(res.send('revento todo en mil pedazos'));
             const propiedad = await db.Propiedad.findByPk(reserva.propiedadId,{
                 include:[{
                     model:db.Agente,
