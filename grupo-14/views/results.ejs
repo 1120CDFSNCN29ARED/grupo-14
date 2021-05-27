@@ -15,7 +15,7 @@
     <div class="container">
         <%for(let i = 0 ; i<productsFiltered.length; i++){%>
             <div class="propiedad">
-                <img src="/img/fachada-edificio.jpg" alt="">
+                <img src="/img/<%=productsFiltered[i].image%>" alt="">
                 <h4>
                     <%=productsFiltered[i].precio%>
                 </h4>

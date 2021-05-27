@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
         status: {
             type: dataTypes.STRING
         },
-        customerId: {
+        userId: {
             type: dataTypes.INTEGER
         }
     };

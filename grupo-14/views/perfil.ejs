@@ -10,9 +10,9 @@
         <%- include("./partials/header") %>
     </header>
     <div class="container" style="margin-top: 40px;">
-        <h2>Hi <%= user.nombre %> </h2>
-        <img src="/img/<% if(user.agenteId){ %>agentes<% }else{ %>users<% } %>/<%= user.imagen %>">
-        <h2> <%= user.email %> </h2>
+        <h2>Hi <%= locals.userLogged.nombre %> </h2>
+        <img src="/img/<% if(locals.userLogged.agenteId){ %>agentes<% }else{ %>users<% } %>/<%= locals.userLogged.imagen %>">
+        <h2> <%= locals.userLogged.email %> </h2>
     </div>
 <footer>
     <%- include("./partials/footer") %>

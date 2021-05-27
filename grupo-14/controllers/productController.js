@@ -18,12 +18,11 @@ const controller = {
         //console.log(products);
         db.Propiedad.findAll({
             where:{
-                //reservado : false,
+                reservado : false,
             },
         }
         ).then((propiedades)=>{
-            res.render("producto", { 
-                user: req.session.userLogged,
+            res.render("producto", {
                 products: propiedades  });
         });
     },
@@ -33,8 +32,7 @@ const controller = {
         const id = req.params.id;
         db.Propiedad.findByPk(id).then((Propiedad)=>{
             console.log(Propiedad.propiedadId);
-            res.render("detalle-producto", {product :Propiedad ,
-                user: req.session.userLogged, toThousand});
+            res.render("detalle-producto", {product :Propiedad, toThousand});
         })
         .catch(() => {
             console.log("Nuevo error debloqueado");
@@ -54,7 +52,7 @@ const controller = {
         db.Propiedad.findByPk(req.params.id,{
             include:["Agente"],
         }).then((Propiedad)=>{
-            res.render("editarProducto", {product : Propiedad, toThousand});
+            res.render("editarProducto", { product: Propiedad, toThousand});
         });
     },
 

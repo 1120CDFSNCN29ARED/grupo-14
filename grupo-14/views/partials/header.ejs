@@ -5,12 +5,20 @@
     <li class="nav-item"><a href="/producto">Inmuebles</a></li>
     <li class="nav-item"><a href="/contact">Contactenos</a></li>
     <li class="nav-item"><a href="">Buscador</a></li>
+    <% if (locals.isLogged) { %>
+        <% if(locals.userLogged.agenteId){ %>
+            <li class="nav-item"><a href="/reservas/listadoAgentes">Reservas</a></li>
+        <% } %>
+        <% if(locals.userLogged.userId){ %>
+            <li class="nav-item"><a href="/reservas/">Reservas</a></li>
+        <% } %>
+    <% } %>
 </ul>
 <ul class="nav-log">
     <% if (locals.isLogged) { %>
-        <li class="nav-item"><a href="/user/profile"><%= locals.userLogged.name %>
-        <p><%= user.nombre %></p>
-        <img src="/img/<% if(user.agenteId){ %>agentes<% }else{ %>users<% } %>/<%= user.imagen %>" width="40" style="border-radius: 100%;"></a>
+        <li class="nav-item"><a href="/user/profile">
+        <p><%= locals.userLogged.nombre %></p>
+        <img src="/img/<% if(locals.userLogged.agenteId){ %>agentes<% }else{ %>users<% } %>/<%= locals.userLogged.imagen %>" width="40" style="border-radius: 100%;"></a>
         <li class="nav-item"><a href="/user/logout">logout</a>
     <% } else{ %>
     <li class="nav-item"><a href="/user/login">Login</a></li>
