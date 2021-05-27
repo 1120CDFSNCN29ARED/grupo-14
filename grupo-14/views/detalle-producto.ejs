@@ -47,8 +47,8 @@
         </div>
 
     </div>
-    <% if(user != undefined){ %>
-        <% if(user.agenteId){ %>
+    <% if(locals.userLogged != undefined){ %>
+        <% if(locals.userLogged.agenteId){ %>
             <div class="edit">
                 <a href="/producto/<%=product.propiedadId%>/edit/"><button class="btn editar">Editar</button></a>
                 <form action="/producto/<%= product.propiedadId %>?_method=DELETE" method="POST" style="display: inline-flex">

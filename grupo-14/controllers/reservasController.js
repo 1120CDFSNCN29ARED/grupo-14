@@ -69,7 +69,8 @@ const controller = {
 
     show: async(req,res)=>{//mostrar vista
         const idsPropiedades = [];
-        const idAgente = req.session.agenteId;
+        console.log(req.session.userLogged.agenteId);
+        const idAgente = req.session.userLogged.agenteId;
         const propiedades = await db.Propiedad.findAll({
             Where : {
                 agenteId : idAgente,
