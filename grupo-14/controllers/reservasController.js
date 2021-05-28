@@ -70,44 +70,43 @@ const controller = {
 
     show: async(req,res)=>{//mostrar vista
         const idsPropiedades = [];
-        console.log(req.session.userLogged.agenteId);
         const idAgente = req.session.userLogged.agenteId;
-        const propiedades = await db.Propiedad.findAll({
-            Where : {
-                [Op.and]: {
+        db.Propiedad.findAll({
+            where : {
                 reservado: true,
-                agenteId : idAgente
-            }
+                agenteId: idAgente
             },
+        }).then((propiedad) => {
+            idsPropiedades.push(propiedad.propiedadId);
         });
         
-        for(propiedad in propiedades){
-            console.log(propiedad);
-            idsPropiedades.push(propiedad.propiedadId);
-        };
 
-        console.log(propiedades);
+        console.log(idsPropiedades);
 
-        const reservas = await db.Reserva.findAll({
-            Where :{
-                [Op.and] : [
-                    {propiedadId : {
-                        [Op.in] : idsPropiedades
-                        }
-                    },
-                        {status:{
-                            [Op.ne] : 'rechazado'}
-                        }
+        const reservas = [];
+
+        db.Reserva.findAll({
+            where :{
+                propiedadId: {
+                    [Op.in]: idsPropiedades
+                },
+                [Op.or]: [
+                    {status: 'en aprobacion de reserva'},
+                    {status: 'aprobado'}
                 ]
             },
             include:[{
                 model:db.Propiedad,
                 as : 'propiedad',
             }]
+        }).then((reserva) => {
+            console.log(reserva);
+            //reservas.push(reserva);
+            res.render('reservasAgente', { reservas: reserva });
         });
 
 
-        res.render('reservasAgente', {reservas : reservas});
+        
     },
 
     showIndividual: async(req,res)=>{
