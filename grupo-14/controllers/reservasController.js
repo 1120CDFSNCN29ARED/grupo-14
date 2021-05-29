@@ -71,19 +71,18 @@ const controller = {
     show: async(req,res)=>{//mostrar vista
         const idsPropiedades = [];
         const idAgente = req.session.userLogged.agenteId;
-        db.Propiedad.findAll({
+        const propiedades = await db.Propiedad.findAll({
             where : {
                 reservado: true,
                 agenteId: idAgente
             },
-        }).then((propiedad) => {
-            idsPropiedades.push(propiedad.propiedadId);
         });
-        
 
+        for(const propiedad of propiedades){
+            idsPropiedades.push(propiedad.propiedadId);
+        }
         console.log(idsPropiedades);
-
-        const reservas = [];
+        //const reservas = [];
 
         db.Reserva.findAll({
             where :{
