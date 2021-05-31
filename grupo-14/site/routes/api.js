@@ -4,6 +4,8 @@ var router = express.Router();
 var multer = require('multer');
 const apiController = require('../controllers/api/apisForReact');
 
+//todas las rutas empiezan con /api/
+
 
 //todos los datos son en formato json, incluso los numericos
 
