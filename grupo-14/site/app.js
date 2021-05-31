@@ -10,6 +10,7 @@ var productRouter = require('./routes/producto');
 var userRouter = require('./routes/users');
 var agenteRouter = require('./routes/agente');
 var reservasRouter = require('./routes/reserva');
+var apiRouter = require('./routes/api');
 const methodOverride = require('method-override');
 const session = require('express-session');
 
@@ -49,6 +50,7 @@ app.use('/producto', productRouter);
 app.use('/user', userRouter);
 app.use('/agente', agenteRouter);
 app.use('/reservas', reservasRouter);
+app.use('/api', apiRouter);
 
 
 
