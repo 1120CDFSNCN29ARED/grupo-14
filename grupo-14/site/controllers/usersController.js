@@ -7,23 +7,7 @@ const controller = {
     add: function (req, res) {
         return res.render('register');
     },
-    passEmails: function(req,res){
-        db.User.findAll().then(users => {
-            const array = [];
-            for(user of users ){
-                array.push(user.email);
-            }
-            let respuesta = {
-                meta: {
-                    status: 200,
-                    total: users.length,
-                    url: '/user/api'
-                },
-                data: array
-            }
-            res.json(respuesta);
-        });
-    },
+   
     create: function (req, res) {
         let emailcreado = req.body.email;
         let contaseñacreada = req.body.password;

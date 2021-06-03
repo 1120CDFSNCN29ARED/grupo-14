@@ -18,12 +18,12 @@ const storage = multer.diskStorage({
 })
 
 const uploadFile = multer({storage});
-const usersController = require('../controllers/usersController');
+
 const { fileName } = require('../controllers/usersController');
 const validations = require('../middlewares/validateRegisterMiddleware');
 const guestMiddleware = require('../middlewares/guestMiddleware');
 const authMiddleware = require('../middlewares/authMiddleware');
-
+const usersController = require('../controllers/usersController');
 
 
 
@@ -39,6 +39,6 @@ router.get('/profile/', authMiddleware, usersController.profile);
 
 router.get('/logout', usersController.logout);
 
-router.get('/api',usersController.passEmails);
+
 
 module.exports = router;
