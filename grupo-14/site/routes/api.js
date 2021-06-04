@@ -24,6 +24,8 @@ router.get('/ultimoProducto',apiController.ultimoProductoCreado);
 //devuelve 10 productos, si nos alcanza tiempo podemos intentar implementar el paginado
 router.get('/tablaDeProductos',apiController.tablaDeProductos);
 
+//productos segun 6 barrios
+router.get('/productosPorBarrio', apiController.productosPorBarrios);
 
 //devuelvo los emails de los usuarios para valdiar en frontend
 router.get('/',apiController.passEmails);

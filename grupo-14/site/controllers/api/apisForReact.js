@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const db = require('../../database/models');
 const bcrypt = require('bcryptjs');
+const {Op} = require('sequelize');
 const e = require('express');
 
 
@@ -55,6 +56,60 @@ const controller = {
         } catch (error) {
             res.json(error);
         }
+    },
+
+    productosPorBarrios: async function(req,res){//este controlador hacer un query a 6 barrios, luego armo un json x barrio y le mando las propiedades solicitadas
+        const saavedra = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%saavedra%'
+                }
+            }
+        });
+        const belgrano = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%belgrano%'
+                }
+            }
+        });
+        const palermo = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%palermo%'
+                }
+            }
+        });
+        const devoto = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%devoto%'
+                }
+            }
+        });
+        const urquiza = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%urquiza%'
+                }
+            }
+        });
+        const colegiales = await db.Propiedad.findAll({
+            where : {
+                barrio : {
+                    [Op.like] : '%colegiales%'
+                }
+            }
+        });
+        const json = {
+            "saavedra" : saavedra,
+            "belgrano" : belgrano,
+            "palermo" : palermo,
+            "devoto" : devoto,
+            "urquiza" : urquiza,
+            "colegiales" : colegiales
+        }
+        res.json(json);
     },
     passEmails: function(req,res){
         db.User.findAll().then(users => {
