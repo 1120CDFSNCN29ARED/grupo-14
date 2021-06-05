@@ -67,7 +67,12 @@ const controller = {
         console.log(set);
         const array = [...set];
         let respuesta = {
-            barrios: array
+            meta: {
+                status: 200,
+                total: array.length,
+                url: '/api/productosPorBarrios'
+            },
+            data: array
         }
         res.json(respuesta);
     },
