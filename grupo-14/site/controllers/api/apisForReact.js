@@ -58,58 +58,18 @@ const controller = {
         }
     },
 
-    productosPorBarrios: async function(req,res){//este controlador hacer un query a 6 barrios, luego armo un json x barrio y le mando las propiedades solicitadas
-        const saavedra = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%saavedra%'
-                }
-            }
-        });
-        const belgrano = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%belgrano%'
-                }
-            }
-        });
-        const palermo = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%palermo%'
-                }
-            }
-        });
-        const devoto = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%devoto%'
-                }
-            }
-        });
-        const urquiza = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%urquiza%'
-                }
-            }
-        });
-        const colegiales = await db.Propiedad.findAll({
-            where : {
-                barrio : {
-                    [Op.like] : '%colegiales%'
-                }
-            }
-        });
-        const json = {
-            "saavedra" : saavedra,
-            "belgrano" : belgrano,
-            "palermo" : palermo,
-            "devoto" : devoto,
-            "urquiza" : urquiza,
-            "colegiales" : colegiales
+    productosPorBarrios: async function(req,res){//vamos a hacer un refactor, vamos a buscar todas las propiedades y asignar sus barrios a un set, cosa de que no se repitan los barrios, y eso es lo que mandamos en json 
+        const set = new Set();
+        const propiedades = await db.Propiedad.findAll();
+        for(propiedad of propiedades){
+            set.add(propiedad.barrio);
         }
-        res.json(json);
+        console.log(set);
+        const array = [...set];
+        let respuesta = {
+            barrios: array
+        }
+        res.json(respuesta);
     },
     passEmails: function(req,res){
         db.User.findAll().then(users => {
