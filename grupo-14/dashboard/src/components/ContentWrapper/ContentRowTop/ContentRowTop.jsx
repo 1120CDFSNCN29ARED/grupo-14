@@ -1,22 +1,30 @@
 import React,{useState, useEffect, useRef} from 'react'
-import Card from '../../Card/Card';
+import Card from '../Card/Card';
 import BarriosInDb from './BarriosInDb/BarriosInDb'
 import TableContainer from './TableContainer/TableContainer'
 
 
 function ContentRowTop() {
     const [barrios, setBarriosList] = useState([]);
+    const [cantProductos, setCantProductosList] = useState([]);
     useEffect(()=>{
         async function fetchBarrios(){
             const barriosApi = await fetch('http://localhost:3001/api/productosPorBarrio');
             const barriosJson = await barriosApi.json();
-            console.log(barriosJson.data);
             setBarriosList(barriosJson.data);
         }
         fetchBarrios();
     },[]);
-    
-    
+    useEffect(()=>{
+        async function fetchProductos(){
+            const productosApi = await fetch('http://localhost:3001/api/propiedades');
+            const productosJson = await productosApi.json();
+            console.log(productosJson);
+            setCantProductosList(productosJson);
+        }
+        fetchProductos();
+    },[]);
+
 
     return (
         <div>
@@ -32,7 +40,7 @@ function ContentRowTop() {
                     <Card 
                     title="Cantidad de propiedades"
                     color="primary"
-                    value="100"
+                    value={cantProductos}
                     icon="fa-building"
                     />
 
