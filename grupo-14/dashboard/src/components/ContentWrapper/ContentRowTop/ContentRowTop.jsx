@@ -7,6 +7,8 @@ import TableContainer from './TableContainer/TableContainer'
 function ContentRowTop() {
     const [barrios, setBarriosList] = useState([]);
     const [cantProductos, setCantProductosList] = useState([]);
+    const [cantAgentes, setCantAgenteList] = useState([]);
+    const [cantUsers, setCantUsersList] = useState([]);
     useEffect(()=>{
         async function fetchBarrios(){
             const barriosApi = await fetch('http://localhost:3001/api/productosPorBarrio');
@@ -19,10 +21,27 @@ function ContentRowTop() {
         async function fetchProductos(){
             const productosApi = await fetch('http://localhost:3001/api/propiedades');
             const productosJson = await productosApi.json();
-            console.log(productosJson);
             setCantProductosList(productosJson);
         }
         fetchProductos();
+    },[]);
+
+    useEffect(()=>{
+        async function fetchAgentes(){
+            const agentesApi = await fetch('http://localhost:3001/api/agentes');
+            const agentesJson = await agentesApi.json();
+            setCantAgenteList(agentesJson);
+        }
+        fetchAgentes();
+    },[]);
+
+    useEffect(()=>{
+        async function fetchUsers(){
+            const usersApi = await fetch('http://localhost:3001/api/users');
+            const usersJson = await usersApi.json();
+            setCantUsersList(usersJson);
+        }
+        fetchUsers();
     },[]);
 
 
@@ -48,7 +67,7 @@ function ContentRowTop() {
                     <Card
                     title="Cantidad de agentes"
                     color="success"
-                    value="20"
+                    value={cantAgentes}
                     icon="fa-male"
                     />
 
@@ -56,7 +75,7 @@ function ContentRowTop() {
                     <Card
                     title="Cantidad de usuarios"
                     color="warning"
-                    value="300"
+                    value={cantUsers}
                     icon="fa-user-circle"
                     />
                 </div>
