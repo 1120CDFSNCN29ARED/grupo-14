@@ -5,7 +5,15 @@ import TableContainer from './TableContainer/TableContainer'
 
 
 function ContentRowTop() {
-    
+    const [ultimoProducto,setUltimoProducto] = useState([]);
+    useEffect(()=>{
+        async function fetchProductos(){
+            const ultimoProductoApi = await fetch(`http://localhost:3001/api/ultimoProducto`);
+            const ultimoProductoJson = await ultimoProductoApi.json();
+            setUltimoProducto(ultimoProductoJson)
+        }
+        fetchProductos();
+    },[])
     
 
     return (
@@ -16,7 +24,7 @@ function ContentRowTop() {
                 </div>
 
                 {/* <!-- Content Row Movies--> */}
-               
+                <ContentRowCards/>
                 {/* <!-- End movies in Data Base --> */}
 
 

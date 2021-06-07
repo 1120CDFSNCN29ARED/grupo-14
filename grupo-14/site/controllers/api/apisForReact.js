@@ -48,10 +48,18 @@ const controller = {
         }
     },
     tablaDeProductos: async function(req,res){
-        try {
-            const respuesta = await db.Propiedad.findAll({
-                limit : 10
+        try { //siempre se le tiene que pasar como minimo 1
+            const total = await db.Propiedad.count();
+            const pages = Math.ceil(total / 10);
+            const allPropiedades = await db.Propiedad.findAndCountAll({
+                limit : 10,
+                offset : 10 * (req.params.page - 1)
             });
+            const respuesta = {
+                count : allPropiedades.count,
+                propiedades : allPropiedades.rows,
+                totalPages : pages,
+            }
             res.json(respuesta);
         } catch (error) {
             res.json(error);
