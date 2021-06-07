@@ -1,49 +1,12 @@
 import React,{useState, useEffect, useRef} from 'react'
-import Card from '../Card/Card';
-import BarriosInDb from './BarriosInDb/BarriosInDb'
+import ContentRowCards from './ContentRowCards/ContentRowCards'
+import BarriosConteiner from './BarriosConteiner/BarriosConteiner'
 import TableContainer from './TableContainer/TableContainer'
 
 
 function ContentRowTop() {
-    const [barrios, setBarriosList] = useState([]);
-    const [cantProductos, setCantProductosList] = useState([]);
-    const [cantAgentes, setCantAgenteList] = useState([]);
-    const [cantUsers, setCantUsersList] = useState([]);
-    useEffect(()=>{
-        async function fetchBarrios(){
-            const barriosApi = await fetch('http://localhost:3001/api/productosPorBarrio');
-            const barriosJson = await barriosApi.json();
-            setBarriosList(barriosJson.data);
-        }
-        fetchBarrios();
-    },[]);
-    useEffect(()=>{
-        async function fetchProductos(){
-            const productosApi = await fetch('http://localhost:3001/api/propiedades');
-            const productosJson = await productosApi.json();
-            setCantProductosList(productosJson);
-        }
-        fetchProductos();
-    },[]);
-
-    useEffect(()=>{
-        async function fetchAgentes(){
-            const agentesApi = await fetch('http://localhost:3001/api/agentes');
-            const agentesJson = await agentesApi.json();
-            setCantAgenteList(agentesJson);
-        }
-        fetchAgentes();
-    },[]);
-
-    useEffect(()=>{
-        async function fetchUsers(){
-            const usersApi = await fetch('http://localhost:3001/api/users');
-            const usersJson = await usersApi.json();
-            setCantUsersList(usersJson);
-        }
-        fetchUsers();
-    },[]);
-
+    
+    
 
     return (
         <div>
@@ -53,32 +16,7 @@ function ContentRowTop() {
                 </div>
 
                 {/* <!-- Content Row Movies--> */}
-                <div className="row">
-
-                    {/* <!-- Movies in Data Base --> */}
-                    <Card 
-                    title="Cantidad de propiedades"
-                    color="primary"
-                    value={cantProductos}
-                    icon="fa-building"
-                    />
-
-                    {/* <!-- Total awards --> */}
-                    <Card
-                    title="Cantidad de agentes"
-                    color="success"
-                    value={cantAgentes}
-                    icon="fa-male"
-                    />
-
-                    {/* <!-- Actors quantity --> */}
-                    <Card
-                    title="Cantidad de usuarios"
-                    color="warning"
-                    value={cantUsers}
-                    icon="fa-user-circle"
-                    />
-                </div>
+               
                 {/* <!-- End movies in Data Base --> */}
 
 
@@ -102,22 +40,7 @@ function ContentRowTop() {
                     {/* <!-- End content row last movie in Data Base --> */}
 
                     {/* <!-- Genres in DB --> */}
-                    <div className="col-lg-6 mb-4">
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                                <h5 className="m-0 font-weight-bold text-gray-800">Barrios In Data Base</h5>
-                            </div>
-                            <div className="card-body">
-                                <div className="row">
-                                    {
-                                        barrios.map((barrio,i)=>{
-                                            return  <BarriosInDb bar={barrio} key = {i} />
-                                        })
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <BarriosConteiner/>
                 </div>
             </div>
             <TableContainer/>
