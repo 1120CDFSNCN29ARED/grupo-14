@@ -54,20 +54,7 @@ function SideBar(){
 
 			<hr className="sidebar-divider d-none d-md-block"/>
 		</ul>
-            <Switch>
-                    <Route exact path="/">
-                        
-                    </Route>
-                    <Route exact path="/BarriosInDb">
-                        <BarriosInDb />
-                    </Route>
-                    <Route exact path="/ContentRowCards">
-                        <ContentRowCards />
-                    </Route>
-                    <Route exact path="/table">
-                        <TableContainer />
-                    </Route>
-            </Switch>
+          
         </React.Fragment>
     )
 }
