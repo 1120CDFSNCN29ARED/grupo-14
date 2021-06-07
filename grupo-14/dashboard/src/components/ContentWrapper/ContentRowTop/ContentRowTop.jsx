@@ -9,6 +9,7 @@ function ContentRowTop() {
     const [cantProductos, setCantProductosList] = useState([]);
     const [cantAgentes, setCantAgenteList] = useState([]);
     const [cantUsers, setCantUsersList] = useState([]);
+    const [ultimoProducto, setUltimoProductoList] = useState([]);
     useEffect(()=>{
         async function fetchBarrios(){
             const barriosApi = await fetch('http://localhost:3001/api/productosPorBarrio');
@@ -43,6 +44,14 @@ function ContentRowTop() {
         }
         fetchUsers();
     },[]);
+    useEffect(() => {
+        async function fetchUltimoProducto() {
+            const ultimoProductoApi = await fetch('http://localhost:3001/api/ultimoProducto');
+            const ultimoProductoJson = await ultimoProductoApi.json();
+            setUltimoProductoList(ultimoProductoJson.data);
+        }
+        fetchUltimoProducto();
+    }, []);
 
 
     return (
@@ -94,7 +103,7 @@ function ContentRowTop() {
                                 <div className="text-center">
                                     <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{ width: "40rem;" }} src="assets/images/mandalorian.jpg" alt=" Star Wars - Mandalorian " />
                                 </div>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, consequatur explicabo officia inventore libero veritatis iure voluptate reiciendis a magnam, vitae, aperiam voluptatum non corporis quae dolorem culpa citationem ratione aperiam voluptatum non corporis ratione aperiam voluptatum quae dolorem culpa ratione aperiam voluptatum?</p>
+                                <p value={ultimoProducto}></p>
                                 <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">View movie detail</a>
                             </div>
                         </div>
