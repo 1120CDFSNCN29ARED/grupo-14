@@ -66,13 +66,12 @@ const controller = {
         }
     },
 
-    productosPorBarrios: async function(req,res){//vamos a hacer un refactor, vamos a buscar todas las propiedades y asignar sus barrios a un set, cosa de que no se repitan los barrios, y eso es lo que mandamos en json 
+    productosPorBarrios: async function(req,res){
         const set = new Set();
         const propiedades = await db.Propiedad.findAll();
         for(propiedad of propiedades){
             set.add(propiedad.barrio);
         }
-        console.log(set);
         const array = [...set];
         let respuesta = {
             meta: {

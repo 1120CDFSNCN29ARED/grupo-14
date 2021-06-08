@@ -7,7 +7,6 @@ const {Op} = require('sequelize');
 const controller = {
     reserva : async (req,res) => {
         const id = req.params.id;
-        console.log("estamos en reserva");
         const propiedad = await db.Propiedad.findByPk(req.params.id,{
             include:[{
                 model:db.Agente,
@@ -28,7 +27,6 @@ const controller = {
             });
 
            const agente = propiedad.Agente;
-           console.log(propiedad);
             
             
             res.render('reservas', {reserva : reserva, propiedad: propiedad, agente:agente});
@@ -81,8 +79,6 @@ const controller = {
         for(const propiedad of propiedades){
             idsPropiedades.push(propiedad.propiedadId);
         }
-        console.log(idsPropiedades);
-        //const reservas = [];
 
         db.Reserva.findAll({
             where :{
@@ -99,8 +95,6 @@ const controller = {
                 as : 'propiedad',
             }]
         }).then((reserva) => {
-            console.log(reserva);
-            //reservas.push(reserva);
             res.render('reservasAgente', { reservas: reserva });
         });
 
@@ -109,7 +103,6 @@ const controller = {
     },
 
     showIndividual: async(req,res)=>{
-        console.log(req.session.userLogged);
         if (req.session.userLogged){
             const reserva = await db.Reserva.findOne({
                 where : {
@@ -120,7 +113,9 @@ const controller = {
                         }
                     ]
                 }
-            });
+            }).catch(
+                res.send("no tiene reservas todavia o sus reservas fueron rechazadas")
+            );
             const propiedad = await db.Propiedad.findByPk(reserva.propiedadId,{
                 include:[{
                     model:db.Agente,

@@ -16,7 +16,7 @@ function TableContainer(){
     },[page])
 
     const pageUp = ()=> {
-        if(page<5){
+        if(page<totalPages){
             setPage(page+1)
         }
     }

@@ -4,18 +4,15 @@ var multer = require('multer');
 const db = require('../database/models');
 const {Op} = require('sequelize');
 const { reserva } = require('./reservasController');
-//const Agente = require('../database/models/Agente');
-//const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
-//const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-//agregar ruta y controlador para crear la reserva.
+
 const controller = {
 
-    producto: (req, res) => { //todos los productos
-        //console.log(products);
+    producto: (req, res) => { //todos los productos;
         db.Propiedad.findAll({
             where:{
                 reservado : false,
@@ -28,26 +25,19 @@ const controller = {
     },
 
     detalle: (req, res) => { //detalle de UN producto
-        console.log("entraste")
         const id = req.params.id;
         db.Propiedad.findByPk(id).then((Propiedad)=>{
-            console.log(Propiedad.propiedadId);
             res.render("detalle-producto", {product :Propiedad, toThousand});
         })
         .catch(() => {
-            console.log("Nuevo error debloqueado");
         })
     },
 
     create: (req, res) => {
-        // Do the magic
-        //agregar validaciones de producto
         res.render("nuevoProducto");
     },
 
     edit: (req, res) => {
-        // Do the magic
-        //agregar mismas validaciones que create
         const id = req.params.id;
         db.Propiedad.findByPk(req.params.id,{
             include:["Agente"],
@@ -58,23 +48,22 @@ const controller = {
 
     store: async(req, res) => {
         const agentChoosen = await getRandomAgent();
-        //console.log("prueba del req.file" + req.file.filename);
-        const urlImagen = `products/${req.file.filename}`
+        const urlImagen = `products/${req.file.filename}`;
+        const valor = req.body.destacado==='1'? true:false;
         db.Propiedad.create({
             reservado : false,
             agenteId : agentChoosen.agenteId,
             image : urlImagen,
+            destacado: valor,
             ...req.body
         }).then((productoNuevo)=>{
             res.redirect(`/producto/${productoNuevo.propiedadId}`);
         })
         .catch(() => {
-            console.log("error nuevo");
         })
     },
 
     update: (req, res) => {
-        // Do the magic
         let urlImagen;
         try{
             urlImagen = `products/${req.file.filename}`}
@@ -83,8 +72,10 @@ const controller = {
                 urlImagen = propiedad.image;
             })
         }
+        const valor = req.body.destacado === '1' ? true : false;
         db.Propiedad.update({
             image :  urlImagen,
+            destacado: valor,
             ...req.body
         }, {
             where: {
@@ -96,7 +87,6 @@ const controller = {
     },
 
     destroy: (req, res) => {
-        // Do the magic
         let productId = req.params.id;
         db.Propiedad
         .destroy({where: {propiedadId: productId}, force: true}) 
