@@ -2,18 +2,9 @@ import React,{useState, useEffect, useRef} from 'react'
 import ContentRowCards from './ContentRowCards/ContentRowCards'
 import BarriosConteiner from './BarriosConteiner/BarriosConteiner'
 import TableContainer from './TableContainer/TableContainer'
-
+import ContentUltimoProducto from './ContentUltimoProducto/ContentUltimoProducto'
 
 function ContentRowTop() {
-    const [ultimoProducto,setUltimoProducto] = useState([]);
-    useEffect(()=>{
-        async function fetchProductos(){
-            const ultimoProductoApi = await fetch(`http://localhost:3001/api/ultimoProducto`);
-            const ultimoProductoJson = await ultimoProductoApi.json();
-            setUltimoProducto(ultimoProductoJson)
-        }
-        fetchProductos();
-    },[])
     
 
     return (
@@ -31,24 +22,7 @@ function ContentRowTop() {
                 {/* <!-- Content Row Last Movie in Data Base --> */}
                 <div className="row">
                     {/* <!-- Last Movie in DB --> */}
-                    <div className="col-lg-6 mb-4">
-                        <div className="card shadow mb-4">
-                            <div className="card-header py-3">
-                                <h5 className="m-0 font-weight-bold text-gray-800">Ultimo inmueble agregado en Data Base</h5>
-                            </div>
-                            <div className="card-body">
-                                <b style={{fontSize:'30px'}} >{ultimoProducto.name}</b>
-                                <div className="text-center">
-                                    <img src={`../../../../../site/public/img/${ultimoProducto.image}`} alt="foto-inmueble" />
-                                </div>
-                                
-                                <p>Direccion: {ultimoProducto.direccion}</p>
-                                <p>Barrio: {ultimoProducto.barrio}</p>
-                                <p>Descripcion de la publicacion: {ultimoProducto.descripcion}</p>
-                                <b>Precio: {ultimoProducto.precio}</b>
-                            </div>
-                        </div>
-                    </div>
+                    <ContentUltimoProducto/>
                     {/* <!-- End content row last movie in Data Base --> */}
 
                     {/* <!-- Genres in DB --> */}
