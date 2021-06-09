@@ -9,20 +9,13 @@ function SideBar(){
         <React.Fragment>
         <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div className="sidebar-brand-icon">
-                    <img className="w-100" src="assets/images/logo-DH.png" alt="Digital House"/>
-				</div>
-			</a>
-
-           
 			<hr className="sidebar-divider my-0"/>
 
                    
 			<li className="nav-item active">
                         <Link className="nav-link" to="/">
                             <i className="fas fa-fw fa-tachometer-alt"></i>
-                            <span>Dashboard - DH movies</span></Link>
+                            <span>Dashboard - Prop Tech</span></Link>
                     </li>
 
                   
